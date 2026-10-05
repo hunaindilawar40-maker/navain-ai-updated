@@ -1,0 +1,9 @@
+# Env & deploy
+.env
+.env.*
+.vercel
+
+# Tooling
+node_modules/
+__pycache__/
+.DS_Store
