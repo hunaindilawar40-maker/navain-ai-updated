@@ -1152,7 +1152,32 @@ details.faq .faq-a {
 }
 .contact-form-card .btn { width: 100%; margin-top: 24px; }
 .form-status { margin-top: 18px; font-size: 14.5px; line-height: 1.6; }
-.form-status.success { color: var(--cyan-text); }
+.form-status.success {
+  color: var(--cyan-text);
+  text-align: center;
+  padding: 26px 0 8px;
+}
+.form-status.success .check {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 229, 255, 0.45);
+  background: rgba(0, 229, 255, 0.08);
+  color: var(--cyan);
+  font-size: 20px;
+  box-shadow: var(--glow-tight);
+}
+.form-status.success strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 21px;
+  font-weight: 650;
+  color: var(--ink-h);
+  margin-bottom: 8px;
+}
 .form-status.error { color: #FF7EB9; }
 .form-hint { font-size: 12.5px; color: var(--ink-micro); margin-top: 12px; }
 
