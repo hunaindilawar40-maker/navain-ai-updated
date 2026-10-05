@@ -1,0 +1,10 @@
+# Env & deploy — never commit real secrets (.env.example is the tracked template)
+.env
+.env.*
+!.env.example
+.vercel
+
+# Tooling
+node_modules/
+__pycache__/
+.DS_Store
