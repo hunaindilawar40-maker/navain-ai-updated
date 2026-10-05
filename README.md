@@ -1,3 +1,4 @@
+# navain-ai-updated
 # Navain AI — Marketing Website
 
 The complete **Navain AI** marketing site: ten static pages, a working AI chatbot
@@ -56,7 +57,7 @@ api/
    contact email.
 
 If the key is missing, the site still works — Stacy simply apologizes and points
-visitors to **revenuepartners.co@gmail.com**.
+visitors to **info@navainai.com**.
 
 ## Deploying (Vercel)
 
