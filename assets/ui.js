@@ -74,6 +74,11 @@
           Array.prototype.forEach.call(form.children, function (el) {
             if (el !== status) el.style.display = "none";
           });
+          // Hide the fields/button/hint but keep the status element (it lives
+          // inside the form) so the thank-you message is what remains visible.
+          Array.prototype.forEach.call(form.children, function (el) {
+            if (el !== status) el.style.display = "none";
+          });
           form.reset();
           status.className = "form-status success";
           status.innerHTML =
