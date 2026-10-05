@@ -69,18 +69,23 @@
       })
         .then(function (r) {
           if (!r.ok) throw new Error("Formspree " + r.status);
+          // Hide the fields/button/hint but keep the status element (it lives
+          // inside the form) so the thank-you message is what remains visible.
+          Array.prototype.forEach.call(form.children, function (el) {
+            if (el !== status) el.style.display = "none";
+          });
           form.reset();
-          form.style.display = "none";
           status.className = "form-status success";
           status.innerHTML =
-            "<strong>Message sent — thank you.</strong> We got your details and will reply from " +
-            "revenuepartners.co@gmail.com, usually the same business day.";
+            '<span class="check" aria-hidden="true">✓</span>' +
+            "<strong>Thank you — we will reach you soon.</strong>" +
+            "We have your details and will reply from info@navainai.com, usually the same business day.";
         })
         .catch(function () {
           status.className = "form-status error";
           status.innerHTML =
             "<strong>That didn’t go through.</strong> Please try again, or email us directly at " +
-            '<a href="mailto:revenuepartners.co@gmail.com">revenuepartners.co@gmail.com</a>.';
+            '<a href="mailto:info@navainai.com">info@navainai.com</a>.';
         })
         .then(function () { btn.disabled = false; });
     });
