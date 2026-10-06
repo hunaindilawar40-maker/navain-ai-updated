@@ -111,14 +111,14 @@
       return "$" + Math.round(n).toLocaleString("en-US");
     };
     var recalc = function () {
-      var calls = parseFloat(cCalls.value) || 0;
-      var value = parseFloat(cValue.value) || 0;
-      var rate = (parseFloat(cRate.value) || 0) / 100;
+      var calls = Math.max(0, parseFloat(cCalls.value) || 0);
+      var value = Math.max(0, parseFloat(cValue.value) || 0);
+      var rate = Math.max(0, Math.min(100, parseFloat(cRate.value) || 0)) / 100;
       var monthly = calls * 4.33 * rate * value;
-      oCalls.textContent = calls;
+      oCalls.textContent = Math.round(calls).toLocaleString("en-US");
       oRate.textContent = Math.round(rate * 100) + "%";
       figure.textContent = fmt(monthly) + " / mo";
-      note.textContent = "≈ " + Math.round(calls * 4.33) + " unanswered calls a month, at your numbers.";
+      note.textContent = "About " + Math.round(calls * 4.33) + " calls a month, at your weekly pace.";
     };
     [cCalls, cValue, cRate].forEach(function (el) {
       el.addEventListener("input", recalc);

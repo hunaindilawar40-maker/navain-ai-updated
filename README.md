@@ -17,7 +17,7 @@ A [Pontis Construction](https://navainai.com/about.html) company ·
 
 | File | Purpose |
 |---|---|
-| `index.html` | Hero, cost of missed calls, call flow, benefits, industries, testimonials, before/after, pricing, revenue calculator, FAQ, CTA + JSON-LD |
+| `index.html` | Human-first hero, immediate revenue calculator, trust signals, call flow, benefits, industries, testimonials, pricing, FAQ, CTA + JSON-LD |
 | `how-it-works.html` | Ring → Understand → Resolve → Notify, 24-hour setup |
 | `why-navain.html` | Positioning + honest comparison table |
 | `industries.html` | All served industries |
