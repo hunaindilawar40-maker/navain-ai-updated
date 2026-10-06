@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/base.css?v=20261006-logo">
+<link rel="stylesheet" href="/assets/base.css?v=20261006-handoff">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -153,7 +153,7 @@
           "name": "What does the AI receptionist actually do during a call?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It answers within two rings in your business's own voice, follows your custom script, answers questions about your services, and books appointments directly from your live calendar. When a booking isn't the right outcome, it takes a message. After every call you get a summary by text and email."
+            "text": "It answers within two rings in your business's own voice, follows your custom script, answers questions about your services, and books appointments directly from your live calendar. When a caller needs a person or a booking isn't the right outcome, it follows your configured handoff rules or takes a message for follow-up. After every call you get a summary by text and email."
           }
         },
         {
@@ -169,7 +169,7 @@
           "name": "What happens when the AI can't answer something?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It stays honest. The agent takes a message with the caller's details and the reason for the call, flags it for follow-up, and includes it in your call summary so nothing gets lost. On the Growth plan, the caller also gets an SMS follow-up after the call."
+            "text": "It follows the escalation instructions agreed during setup. If a caller asks for a person, remains confused, raises an urgent issue, or the agent can't confidently help, Navain can route the call to your designated contact when live transfer is configured. If no one can take the call, it captures the details, flags the request for priority follow-up, and sends your team a summary. For a life-threatening emergency, callers should contact local emergency services; Navain is not an emergency-response service."
           }
         },
         {
@@ -318,7 +318,7 @@
       <div class="step-card reveal">
         <span class="step-num">03 · Resolve</span>
         <h3>Handled live</h3>
-        <p>It books appointments from your live calendar — or takes a clear message when a booking isn't the right outcome.</p>
+        <p>It books from your live calendar. If a caller needs a person or a request is outside the script, it follows your handoff rules — or captures a message if no one can take the call.</p>
       </div>
       <div class="step-card reveal">
         <span class="step-num">04 · Notify</span>
@@ -375,6 +375,8 @@
       <a class="chip" href="/industries.html">Real Estate</a>
       <a class="chip" href="/industries.html">Auto Repair</a>
       <a class="chip" href="/industries.html">Restaurants &amp; Cafes</a>
+      <a class="chip" href="/industries.html">Roofing</a>
+      <a class="chip" href="/industries.html">Accounting &amp; Bookkeeping</a>
       <a class="chip" href="/industries.html">Veterinary Clinics</a>
       <a class="chip" href="/industries.html">Gyms &amp; Fitness Studios</a>
       <a class="chip" href="/industries.html">Cleaning Services</a>
@@ -402,35 +404,41 @@
 <section class="section reveal">
   <div class="container">
     <div class="section-head">
-      <p class="kicker">Testimonials</p>
-      <h2>What it's like to never miss</h2>
-      <p class="sub">Owners describe the experience — not numbers.</p>
+      <p class="kicker">Industry stories</p>
+      <h2>What it looks like across the workday</h2>
+      <p class="sub">Draft testimonial copy for roofing, restaurants, and accounting. Replace with customer-approved quotes before publishing as endorsements.</p>
     </div>
     <div class="grid grid-3">
       <figure class="quote-card reveal">
-  <span class="quote-mark" aria-hidden="true">“</span>
-  <blockquote>I used to lose whole afternoons to phone tag between clients. Now bookings land on my calendar while I'm mid-color, and the summary text tells me exactly what each call was about. The first week felt suspiciously quiet — in a good way.</blockquote>
-  <figcaption class="quote-who">
-    <span class="quote-avatar" aria-hidden="true">MG</span>
-    <span><span class="quote-name">Maria G.</span><span class="quote-role">Salon owner</span></span>
-  </figcaption>
-</figure>
+        <span class="quote-draft-badge">Draft · Roofing</span>
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>Storm calls don't wait for us to get off the roof. Navain answers, gets the property address and a clear description of the issue, then follows our urgent-call rules. By the time I'm back on the ground, I know who needs a callback first.</blockquote>
+        <figcaption class="quote-who">
+          <span class="quote-avatar" aria-hidden="true">RF</span>
+          <span><span class="quote-name">Roofing business owner</span><span class="quote-role">Illustrative testimonial draft</span></span>
+        </figcaption>
+      </figure>
       <figure class="quote-card reveal">
-  <span class="quote-mark" aria-hidden="true">“</span>
-  <blockquote>We can't answer the phone when we're under a unit. Callers used to hit voicemail and dial the next company on the list. Now every call gets a real answer in our own script, and the booking just shows up on the schedule.</blockquote>
-  <figcaption class="quote-who">
-    <span class="quote-avatar" aria-hidden="true">DR</span>
-    <span><span class="quote-name">Dave R.</span><span class="quote-role">HVAC lead</span></span>
-  </figcaption>
-</figure>
+        <span class="quote-draft-badge">Draft · Restaurant</span>
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>During dinner service, every phone ring competes with the guests in front of us. Now callers can get our hours and reservation information without pulling a team member away, and anything the AI can't sort out is captured for follow-up.</blockquote>
+        <figcaption class="quote-who">
+          <span class="quote-avatar" aria-hidden="true">RT</span>
+          <span><span class="quote-name">Restaurant owner</span><span class="quote-role">Illustrative testimonial draft</span></span>
+        </figcaption>
+      </figure>
       <figure class="quote-card reveal">
-  <span class="quote-mark" aria-hidden="true">“</span>
-  <blockquote>After-hours calls used to be a black hole of voicemails. Now every caller gets an answer, and I start the morning with a tidy summary instead of twelve messages to untangle.</blockquote>
-  <figcaption class="quote-who">
-    <span class="quote-avatar" aria-hidden="true">ET</span>
-    <span><span class="quote-name">Elena T.</span><span class="quote-role">Dental office manager</span></span>
-  </figcaption>
-</figure>
+        <span class="quote-draft-badge">Draft · Accounting</span>
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>At tax time, routine calls about availability and documents can break up an entire afternoon. Navain handles straightforward office questions and sends anything client-specific or complex to us with the reason for the call, so we can call back prepared.</blockquote>
+        <figcaption class="quote-who">
+          <span class="quote-avatar" aria-hidden="true">AC</span>
+          <span><span class="quote-name">Accounting firm owner</span><span class="quote-role">Illustrative testimonial draft</span></span>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="cta-actions">
+      <a class="btn btn-ghost" href="/testimonials.html">See all testimonials</a>
     </div>
   </div>
 </section>
@@ -572,7 +580,7 @@
 </details>
 <details class="faq">
 <summary>What does the AI receptionist actually do during a call?</summary>
-<div class="faq-a"><p>It answers within two rings in your business's own voice, follows your custom script, answers questions about your services, and books appointments directly from your live calendar. When a booking isn't the right outcome, it takes a message. After every call you get a summary by text and email.</p></div>
+<div class="faq-a"><p>It answers within two rings in your business's own voice, follows your custom script, answers questions about your services, and books appointments directly from your live calendar. When a caller needs a person or a booking isn't the right outcome, it follows your configured handoff rules or takes a message for follow-up. After every call you get a summary by text and email.</p></div>
 </details>
 <details class="faq">
 <summary>Will callers know they're talking to an AI?</summary>
@@ -580,7 +588,7 @@
 </details>
 <details class="faq">
 <summary>What happens when the AI can't answer something?</summary>
-<div class="faq-a"><p>It stays honest. The agent takes a message with the caller's details and the reason for the call, flags it for follow-up, and includes it in your call summary so nothing gets lost. On the Growth plan, the caller also gets an SMS follow-up after the call.</p></div>
+<div class="faq-a"><p>It follows the escalation instructions agreed during setup. If a caller asks for a person, remains confused, raises an urgent issue, or the agent can't confidently help, Navain can route the call to your designated contact when live transfer is configured. If no one can take the call, it captures the details, flags the request for priority follow-up, and sends your team a summary. For a life-threatening emergency, callers should contact local emergency services; Navain is not an emergency-response service.</p></div>
 </details>
 <details class="faq">
 <summary>How much does Navain AI cost?</summary>
@@ -594,16 +602,37 @@
   </div>
 </section>
 
-<section class="section reveal">
+<section class="section section-alt reveal" id="handoff">
   <div class="container">
-    <div class="cta-band">
-      <h2>Your next caller shouldn't get voicemail.</h2>
-      <p>Tell us about your business today, and your AI receptionist can be answering on your number by this time tomorrow.</p>
-      <div class="cta-actions">
-        <a class="btn btn-primary btn-lg" href="/contact.html">Get started</a>
+    <div class="cta-band handoff-band">
+      <div class="handoff-heading">
+        <p class="kicker">A real front desk knows when to pass it on</p>
+        <h2>AI when it can.<br><span class="handoff-accent">Human when it should.</span></h2>
+        <p>Routine calls stay quick and easy. If a caller needs a person, remains confused, raises an urgent issue, or the AI can't confidently help, the next step is part of your call plan — not a dead end.</p>
+      </div>
+      <ol class="handoff-flow" aria-label="What happens when a call needs a human">
+        <li class="handoff-step">
+          <span class="handoff-index">01 · Recognize</span>
+          <h3>Spot the exception</h3>
+          <p>A caller asks for a human, stays confused after clarification, describes an urgent issue, or asks something outside the agent's confident answers.</p>
+        </li>
+        <li class="handoff-step">
+          <span class="handoff-index">02 · Route</span>
+          <h3>Follow your rules</h3>
+          <p>When live transfer is configured, connect to your chosen teammate or on-call contact. Otherwise, move to the message-and-follow-up path you set.</p>
+        </li>
+        <li class="handoff-step">
+          <span class="handoff-index">03 · Close the loop</span>
+          <h3>Keep the context</h3>
+          <p>If no one can take the call, capture the caller's details and reason, flag it for priority follow-up, and send your team a clear summary.</p>
+        </li>
+      </ol>
+      <p class="handoff-emergency"><strong>Emergency boundary:</strong> For immediate, life-threatening danger, the call flow should direct callers to local emergency services. Navain is not an emergency-response service.</p>
+      <div class="cta-actions handoff-actions">
+        <a class="btn btn-primary btn-lg" href="/contact.html">Plan my escalation path</a>
         <a class="btn btn-ghost btn-lg" href="/pricing.html">See pricing</a>
       </div>
-      <p class="cta-contact">Prefer to talk? <a href="mailto:info@navainai.com">info@navainai.com</a> · <a href="tel:+12512031002">+1 (251) 203-1002</a></p>
+      <p class="cta-contact handoff-contact">During setup, choose the human contact, after-hours route, and fallback message. Prefer to talk? <a href="mailto:info@navainai.com">info@navainai.com</a> · <a href="tel:+12512031002">+1 (251) 203-1002</a></p>
     </div>
   </div>
 </section>
