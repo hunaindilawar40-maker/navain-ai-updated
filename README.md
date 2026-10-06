@@ -39,7 +39,12 @@ assets/
   reveal.js     IntersectionObserver fade-ins (<2KB, reduced-motion + no-JS safe)
   ui.js         nav drawer, cookie banner, contact form fetch, revenue calculator
   chat.js       the "Stacy" chat widget
-  favicon.png / logo.png / og-banner.png
+  icon-512.png  the brand mark, 512x512 — Search, PWA and JSON-LD `logo`
+  favicon-48/96/192.png, favicon.png (legacy 64px), apple-touch-icon.png
+  logo.png / og-banner.png (social preview)
+favicon.ico     multi-size 16/32/48 at the site root (default crawler fallback)
+tools/
+  make-icons.py regenerates the whole icon set from code — see "Favicon" below
 api/
   config.js     GET  → { chat, tts } — which env vars exist
   chat.js       POST → Groq chat completion → { text }
@@ -94,9 +99,45 @@ npm i -g vercel && vercel dev
 (With a plain static server, `/api/config` 404s and the widget gracefully shows
 its fallback message — that's expected.)
 
+## Favicon / the logo in Google Search
+
+Google shows a site's icon next to its search results, but only if the icon it
+fetches is square, at least 48x48, and in practice a **multiple of 48px**
+(48/96/192/512). The site previously shipped one 64x64 PNG — 64 is not a
+multiple of 48, so Google ignored it and displayed the default globe. There was
+also no `/favicon.ico` at the root.
+
+Every page now declares (see the head of any `.html`):
+
+```html
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48"   href="/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="96x96"   href="/assets/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+```
+
+`robots.txt` explicitly allows `Googlebot-Image` (a blocked icon is never shown),
+and `index.html` points its JSON-LD `Organization.logo` at `icon-512.png`.
+
+Regenerate everything after a brand change:
+
+```bash
+pip install pillow
+python3 tools/make-icons.py    # rewrites favicon.ico + all assets/favicon-*.png
+```
+
+Icon URLs are stable across deploys on purpose — Google caches the favicon and a
+URL that keeps changing resets the clock. To nudge Google after an icon change,
+open the site in [Search Console](https://search.google.com/search-console) →
+**URL inspection** → *Request indexing* for the homepage. Updates normally appear
+within a few days to a few weeks.
+
 ## Notes
 
-- `robots.txt` allows everything except `/api/` and points to `sitemap.xml`
+- `robots.txt` allows everything except `/api/`, explicitly allows
+  `Googlebot-Image` so the favicon stays crawlable, and points to `sitemap.xml`
   (all ten pages at `https://navainai.com/`).
 - Structured data (`index.html`): a single JSON-LD `@graph` with Organization,
   WebSite, Service (with the two real Offers, $699/$999 USD), and FAQPage.

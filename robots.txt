@@ -1,5 +1,18 @@
+# Navain AI — https://navainai.com
 User-agent: *
 Allow: /
 Disallow: /api/
+
+# Icons must stay crawlable: Google fetches the favicon with Googlebot-Image
+# and will not show one it is blocked from.
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://navainai.com/sitemap.xml
