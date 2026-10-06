@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="navain-logo-title">
+  <title id="navain-logo-title">Navain AI</title>
+  <!--
+    Navain AI brand mark — vector version of assets/logo.png.
+    Dark rounded tile, cyan→violet→magenta ring, gradient "N" with soft glow.
+    Geometry sampled from the 512×512 master PNG so raster and vector match.
+  -->
+  <defs>
+    <linearGradient id="navain-ring" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0" stop-color="#22F0FF"/>
+      <stop offset="0.38" stop-color="#6EADDB"/>
+      <stop offset="0.63" stop-color="#A180C3"/>
+      <stop offset="1" stop-color="#FF2E97"/>
+    </linearGradient>
+    <linearGradient id="navain-hairline" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0" stop-color="#22F0FF" stop-opacity="0.5"/>
+      <stop offset="0.45" stop-color="#6EADDB" stop-opacity="0.16"/>
+      <stop offset="0.75" stop-color="#FF2E97" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="navain-n" gradientUnits="userSpaceOnUse" x1="150" y1="150" x2="362" y2="362">
+      <stop offset="0" stop-color="#61B8E1"/>
+      <stop offset="0.5" stop-color="#908FCB"/>
+      <stop offset="1" stop-color="#C064B4"/>
+    </linearGradient>
+    <filter id="navain-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded tile with gradient ring -->
+  <rect x="7" y="7" width="498" height="498" rx="108" fill="#05070E" stroke="url(#navain-ring)" stroke-width="5"/>
+  <!-- Faint inner hairline, fading out towards the magenta corner -->
+  <rect x="22" y="22" width="468" height="468" rx="95" fill="none" stroke="url(#navain-hairline)" stroke-width="2"/>
+
+  <!-- The N: left leg up, diagonal down, right leg up -->
+  <g filter="url(#navain-glow)" opacity="0.55">
+    <path d="M178 334 V178 L341 334 V178" fill="none" stroke="url(#navain-n)" stroke-width="56" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="M178 334 V178 L341 334 V178" fill="none" stroke="url(#navain-n)" stroke-width="56" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

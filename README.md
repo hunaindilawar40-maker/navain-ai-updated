@@ -41,7 +41,8 @@ assets/
   chat.js       the "Stacy" chat widget
   icon-512.png  the brand mark, 512x512 — Search, PWA and JSON-LD `logo`
   favicon-48/96/192.png, favicon.png (legacy 64px), apple-touch-icon.png
-  logo.png      displayed brand mark in the header and footer
+  logo.svg      displayed brand mark in the header and footer (vector, crisp at any size)
+  logo.png      512x512 raster master the SVG was traced from (kept for reference)
   og-banner.png social preview image (Open Graph / Twitter)
 favicon.ico     multi-size 16/32/48 at the site root (default crawler fallback)
 tools/
