@@ -712,6 +712,43 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: var(--cyan);
   box-shadow: var(--glow-tight);
 }
+a.trust-item.brandword:hover { color: var(--cyan-text); }
+
+/* A first-person pause between product claims and product details. */
+.human-note-section { padding-top: 78px; padding-bottom: 78px; }
+.human-note {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(36px, 7vw, 92px);
+  align-items: start;
+  padding: clamp(34px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  background: var(--card);
+  box-shadow: var(--shadow-deep);
+}
+.human-note-heading h2 { max-width: 450px; margin-bottom: 0; }
+.human-note-copy blockquote {
+  margin: 0 0 18px;
+  color: var(--ink-h);
+  font-family: var(--font-head);
+  font-size: clamp(1.15rem, 2vw, 1.42rem);
+  line-height: 1.55;
+}
+.human-note-signoff {
+  margin: 0 0 24px;
+  color: var(--cyan-text);
+  font-size: 14px;
+  font-weight: 650;
+}
+.human-note-proof {
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-body);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.human-note-proof a { font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
 
 /* --------------------------------------------------------------------------
    10. Stats, steps, benefits, chips
@@ -1368,6 +1405,26 @@ details.faq .faq-a {
   box-shadow: var(--glow-tight);
 }
 .prose .meta { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-micro); }
+.prose-note {
+  margin: 40px 0 8px;
+  padding: 28px 30px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--cyan);
+  border-radius: var(--r-md);
+  background: var(--card);
+  box-shadow: var(--shadow-deep);
+}
+.prose-note p {
+  margin: 0 0 12px;
+  color: var(--ink-h);
+  font-family: var(--font-head);
+  font-size: 1.12rem;
+  line-height: 1.6;
+}
+.prose-note span { color: var(--cyan-text); font-size: 13px; font-weight: 650; }
+.text-link-arrow { font-weight: 650; text-decoration: underline; text-underline-offset: 4px; }
+.footer-legal a { color: inherit; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+.footer-legal a:hover { color: var(--cyan-text); }
 
 /* --------------------------------------------------------------------------
    20. Footer
@@ -1714,6 +1771,7 @@ details.faq .faq-a {
   .ind-grid { grid-template-columns: repeat(2, 1fr); }
   .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
   .contact-grid { grid-template-columns: 1fr; }
+  .human-note { grid-template-columns: 1fr; }
   .calc-grid { grid-template-columns: 1fr; gap: 22px; }
   .compare { grid-template-columns: 1fr; }
   .handoff-flow { grid-template-columns: 1fr; }
@@ -1721,6 +1779,8 @@ details.faq .faq-a {
 
 @media (max-width: 760px) {
   .section { padding: 60px 0; }
+  .human-note-section { padding-top: 52px; padding-bottom: 52px; }
+  .human-note { padding: 30px 24px; gap: 28px; }
   .hero { padding: 64px 0 72px; }
   .page-hero { padding: 64px 0 56px; }
   body { font-size: 15px; }

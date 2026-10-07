@@ -14,8 +14,11 @@
     "It answers every call in the business's own voice within two rings, books appointments " +
     "from a live calendar, and sends the owner a text and email " +
     "summary after every call. No hardware, no contracts, live on the customer's existing " +
-    "number within 24 hours. Navain AI is built by the team behind Pontis Construction, which " +
-    "has operated across the US and Canada since 2010.\n\n" +
+    "number within 24 hours. Navain AI is built by the team behind Pontis Construction Inc., " +
+    "which has operated across the US and Canada since 2010, with offices in Sacramento, " +
+    "California and Richmond Hill, Ontario. Pontis provides construction estimating, material " +
+    "sourcing, pre-construction BIM, shop drawings, roofing, millwork and interior-finish " +
+    "services. Its official website is https://www.pontisconstruction.com/.\n\n" +
     "PRICING — these are the only plans and prices that exist, and you must never invent plans, " +
     "tiers, prices, discounts, statistics, customer counts or performance numbers:\n" +
     "- Essential: $699/month + $899 one-time setup. AI receptionist on your existing number, " +
