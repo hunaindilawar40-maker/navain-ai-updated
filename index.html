@@ -19,19 +19,20 @@
 <meta name="twitter:description" content="When you're busy, Navain AI answers your business phone 24/7, books appointments, and keeps you in the loop. Built for service businesses and live on your number within 24 hours.">
 <meta name="twitter:image" content="https://navainai.com/assets/og-banner.png">
 <link rel="canonical" href="https://navainai.com/">
-<!-- Icons. Google needs a square icon at least 48x48 and a multiple of 48px;
-     the 96px / 192px PNGs are what Search actually renders. /favicon.ico is the
-     default fallback every crawler checks first. -->
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<!-- Use one stable, crawlable apex-host URL as the primary Search favicon.
+     Google applies a single favicon to every result from this hostname. -->
+<link rel="icon" type="image/png" sizes="96x96" href="https://navainai.com/assets/favicon-96.png">
+<link rel="icon" type="image/png" sizes="48x48" href="https://navainai.com/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://navainai.com/assets/favicon-192.png">
+<link rel="shortcut icon" type="image/x-icon" href="https://navainai.com/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://navainai.com/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1C352C">
+<meta name="application-name" content="Navain AI">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/base.css?v=20261006-human-first">
+<link rel="stylesheet" href="/assets/base.css?v=20261008-human-first">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -63,7 +64,10 @@
       ],
       "parentOrganization": {
         "@type": "Organization",
-        "name": "Pontis Construction"
+        "name": "Pontis Construction Inc.",
+        "url": "https://www.pontisconstruction.com/",
+        "foundingDate": "2010",
+        "description": "A construction services company with offices in Sacramento, California and Richmond Hill, Ontario, providing estimating, material sourcing, pre-construction BIM, shop drawings, roofing, millwork and interior-finish services."
       },
       "knowsAbout": [
         "AI phone receptionist",
@@ -226,7 +230,7 @@
       <p class="lede">You have customers to look after and a business to run. Navain is your AI receptionist for the moments you're on a job, with another customer, or off the clock. It answers in your business's voice, books from your live calendar, and follows your handoff plan when a caller needs a person.</p>
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" href="#calculator">Estimate my missed calls <span aria-hidden="true">↓</span></a>
-        <a class="btn btn-ghost btn-lg" href="/contact.html">Talk to our team</a>
+        <a class="btn btn-ghost btn-lg" href="/contact.html">Talk with our team</a>
       </div>
       <div class="hero-stats" aria-label="Navain at a glance">
         <div class="hstat"><span class="stat-num">2 rings</span><span class="hstat-label">before a caller hears hello</span></div>
@@ -311,7 +315,7 @@
   <div class="container trust-row">
     <span class="trust-item">From the team behind</span>
     <span class="trust-dot" aria-hidden="true"></span>
-    <span class="trust-item brandword">Pontis Construction</span>
+    <a class="trust-item brandword" href="https://www.pontisconstruction.com/" target="_blank" rel="noopener">Pontis Construction Inc.</a>
     <span class="trust-dot" aria-hidden="true"></span>
     <span class="trust-item">US &amp; Canada · since 2010</span>
     <span class="trust-dot" aria-hidden="true"></span>
@@ -323,25 +327,17 @@
   </div>
 </section>
 
-<section class="section reveal">
+<section class="section reveal human-note-section" aria-labelledby="human-note-title">
   <div class="container">
-    <div class="section-head">
-      <p class="kicker">Because you can't be everywhere at once</p>
-      <h2>Some of your best customers call while your hands are full.</h2>
-      <p class="sub">Under a sink, with a customer, or finally off the clock—there's always a reason you can't get to the phone. Navain gives callers a friendly first hello and gives you the breathing room to finish what you're doing.</p>
-    </div>
-    <div class="stat-grid">
-      <div class="stat-card reveal">
-        <span class="stat-num">Every call</span>
-        <p>Answered within two rings, in your business's own voice — at 2 PM or 2 AM.</p>
+    <div class="human-note">
+      <div class="human-note-heading">
+        <p class="kicker">A note from the people behind Navain</p>
+        <h2 id="human-note-title">We built the front desk we wished we'd had.</h2>
       </div>
-      <div class="stat-card reveal">
-        <span class="stat-num">Every hour</span>
-        <p>Covered around the clock. You're on a job, with family, or asleep — Navain still picks up.</p>
-      </div>
-      <div class="stat-card reveal">
-        <span class="stat-num">Every job</span>
-        <p>Booked straight into your live calendar, with a summary texted and emailed to you right after the call.</p>
+      <div class="human-note-copy">
+        <blockquote>“We know the feeling: the phone rings while you're on a job, speaking with a customer, or finally sitting down with your family. You tell yourself you'll call back, but the caller may already be trying the next business. We built Navain to give that person a thoughtful hello—and give the owner a little room to finish what they're doing.”</blockquote>
+        <p class="human-note-signoff">— The Navain AI team at Pontis Construction Inc.</p>
+        <p class="human-note-proof"><a href="https://www.pontisconstruction.com/" target="_blank" rel="noopener">Pontis Construction Inc.</a> has worked across the US and Canada since 2010, with a US head office in Sacramento and a Canadian operational office in Richmond Hill. Its work spans estimating, material sourcing, pre-construction BIM, shop drawings, roofing, millwork, and interior finishes.</p>
       </div>
     </div>
   </div>
@@ -454,41 +450,41 @@
 <section class="section reveal">
   <div class="container">
     <div class="section-head">
-      <p class="kicker">Industry stories</p>
-      <h2>What it looks like across the workday</h2>
-      <p class="sub">Draft testimonial copy for roofing, restaurants, and accounting. Replace with customer-approved quotes before publishing as endorsements.</p>
+      <p class="kicker">Example call stories</p>
+      <h2>A few ways a busy workday can sound</h2>
+      <p class="sub">These are illustrative scenarios—not customer endorsements—showing how Navain could fit into roofing, restaurant, and accounting workflows.</p>
     </div>
     <div class="grid grid-3">
       <figure class="quote-card reveal">
-        <span class="quote-draft-badge">Draft · Roofing</span>
+        <span class="quote-draft-badge">Example · Roofing</span>
         <span class="quote-mark" aria-hidden="true">“</span>
         <blockquote>Storm calls don't wait for us to get off the roof. Navain answers, gets the property address and a clear description of the issue, then follows our urgent-call rules. By the time I'm back on the ground, I know who needs a callback first.</blockquote>
         <figcaption class="quote-who">
           <span class="quote-avatar" aria-hidden="true">RF</span>
-          <span><span class="quote-name">Roofing business owner</span><span class="quote-role">Illustrative testimonial draft</span></span>
+          <span><span class="quote-name">Roofing business owner</span><span class="quote-role">Illustrative call scenario</span></span>
         </figcaption>
       </figure>
       <figure class="quote-card reveal">
-        <span class="quote-draft-badge">Draft · Restaurant</span>
+        <span class="quote-draft-badge">Example · Restaurant</span>
         <span class="quote-mark" aria-hidden="true">“</span>
         <blockquote>During dinner service, every phone ring competes with the guests in front of us. Now callers can get our hours and reservation information without pulling a team member away, and anything the AI can't sort out is captured for follow-up.</blockquote>
         <figcaption class="quote-who">
           <span class="quote-avatar" aria-hidden="true">RT</span>
-          <span><span class="quote-name">Restaurant owner</span><span class="quote-role">Illustrative testimonial draft</span></span>
+          <span><span class="quote-name">Restaurant owner</span><span class="quote-role">Illustrative call scenario</span></span>
         </figcaption>
       </figure>
       <figure class="quote-card reveal">
-        <span class="quote-draft-badge">Draft · Accounting</span>
+        <span class="quote-draft-badge">Example · Accounting</span>
         <span class="quote-mark" aria-hidden="true">“</span>
         <blockquote>At tax time, routine calls about availability and documents can break up an entire afternoon. Navain handles straightforward office questions and sends anything client-specific or complex to us with the reason for the call, so we can call back prepared.</blockquote>
         <figcaption class="quote-who">
           <span class="quote-avatar" aria-hidden="true">AC</span>
-          <span><span class="quote-name">Accounting firm owner</span><span class="quote-role">Illustrative testimonial draft</span></span>
+          <span><span class="quote-name">Accounting firm owner</span><span class="quote-role">Illustrative call scenario</span></span>
         </figcaption>
       </figure>
     </div>
     <div class="cta-actions">
-      <a class="btn btn-ghost" href="/testimonials.html">See all testimonials</a>
+      <a class="btn btn-ghost" href="/testimonials.html">Explore all industry stories</a>
     </div>
   </div>
 </section>
@@ -678,11 +674,11 @@
     </div>
     <hr class="footer-sep">
     <p class="footer-legal">© 2026 Navain AI · info@navainai.com · +1 (251) 203-1002</p>
-    <p class="footer-legal">A Pontis Construction company · Operating across the US and Canada since 2010</p>
+    <p class="footer-legal">A <a href="https://www.pontisconstruction.com/" target="_blank" rel="noopener">Pontis Construction Inc.</a> company · Operating across the US and Canada since 2010</p>
   </div>
 </footer>
 <script src="/assets/reveal.js?v=20261006" defer></script>
 <script src="/assets/ui.js?v=20261006-human-first" defer></script>
-<script src="/assets/chat.js?v=20261006-human-first" defer></script>
+<script src="/assets/chat.js?v=20261008-human-first" defer></script>
 </body>
 </html>

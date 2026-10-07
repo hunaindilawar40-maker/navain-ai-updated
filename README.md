@@ -10,7 +10,7 @@ hand-written scripts.
 every call in the business's own voice within two rings, books appointments from
 a live calendar, and sends the owner a text/email summary. No hardware, no
 contracts, live on the customer's existing number within 24 hours.
-A [Pontis Construction](https://navainai.com/about.html) company ·
+A [Pontis Construction Inc.](https://www.pontisconstruction.com/) company ·
 <https://navainai.com>
 
 ## Pages
@@ -21,7 +21,7 @@ A [Pontis Construction](https://navainai.com/about.html) company ·
 | `how-it-works.html` | Ring → Understand → Resolve → Notify, 24-hour setup |
 | `why-navain.html` | Positioning + honest comparison table |
 | `industries.html` | All served industries |
-| `testimonials.html` | Customer stories |
+| `testimonials.html` | Transparent, illustrative call stories across nine service-business niches |
 | `about.html` | Pontis Construction origin story |
 | `pricing.html` | Plans + full comparison table |
 | `contact.html` | Formspree contact form |
