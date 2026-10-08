@@ -29,9 +29,12 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#1C352C">
 <meta name="application-name" content="Navain AI">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Self-hosted webfonts. No request to fonts.googleapis.com, so no visitor IP
+     is sent to a third party on pageview. The two variable faces are preloaded
+     because both render above the fold; `crossorigin` is required for fonts. -->
+<link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css?v=20261008-selfhosted">
 <link rel="stylesheet" href="/assets/base.css?v=20261008-human-first">
 <script type="application/ld+json">
 {
@@ -680,5 +683,6 @@
 <script src="/assets/reveal.js?v=20261006" defer></script>
 <script src="/assets/ui.js?v=20261006-human-first" defer></script>
 <script src="/assets/chat.js?v=20261008-human-first" defer></script>
+<script src="/assets/analytics.js?v=20261008" defer></script>
 </body>
 </html>

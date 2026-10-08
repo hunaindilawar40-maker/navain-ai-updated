@@ -10,14 +10,14 @@
 <meta property="og:title" content="Industries — Navain AI">
 <meta property="og:description" content="Navain AI answers for roofing, restaurants, accounting, HVAC, dental, salons and more service businesses — 24/7, in your own voice, on your existing number.">
 <meta property="og:url" content="https://navainai.com/industries.html">
-<meta property="og:image" content="https://navainai.com/assets/og-banner.png">
+<meta property="og:image" content="https://navainai.com/assets/og-industries.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Navain AI">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Industries — Navain AI">
 <meta name="twitter:description" content="Navain AI answers for roofing, restaurants, accounting, HVAC, dental, salons and more service businesses — 24/7, in your own voice, on your existing number.">
-<meta name="twitter:image" content="https://navainai.com/assets/og-banner.png">
+<meta name="twitter:image" content="https://navainai.com/assets/og-industries.png">
 <link rel="canonical" href="https://navainai.com/industries.html">
 <!-- Use one stable, crawlable apex-host URL as the primary Search favicon.
      Google applies a single favicon to every result from this hostname. -->
@@ -29,11 +29,190 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#1C352C">
 <meta name="application-name" content="Navain AI">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Self-hosted webfonts. No request to fonts.googleapis.com, so no visitor IP
+     is sent to a third party on pageview. The two variable faces are preloaded
+     because both render above the fold; `crossorigin` is required for fonts. -->
+<link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css?v=20261008-selfhosted">
 <link rel="stylesheet" href="/assets/base.css?v=20261008-human-first">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://navainai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://navainai.com/industries.html"
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://navainai.com/industries.html#",
+      "url": "https://navainai.com/industries.html",
+      "name": "Industries",
+      "description": "The service businesses Navain AI answers calls for, from HVAC and roofing to dental, salons and law offices.",
+      "isPartOf": {
+        "@id": "https://navainai.com/#website"
+      },
+      "about": {
+        "@id": "https://navainai.com/#organization"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://navainai.com/industries.html#industries",
+      "name": "Industries Navain AI serves",
+      "numberOfItems": 26,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "HVAC & Plumbing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Roofing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Dental & Medical"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Salons & Spas"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Law Offices"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Real Estate"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Auto Repair"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Restaurants & Cafes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Veterinary Clinics"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "Gyms & Fitness Studios"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "Cleaning Services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "Contractors & Construction"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "Optometry"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "Landscaping & Lawn Care"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "Moving Companies"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "name": "Chiropractors & Physio"
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "name": "Property Management"
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "name": "Storage Facilities"
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "name": "Tutoring & Education"
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "name": "Insurance Agencies"
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "name": "Accounting & Bookkeeping"
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "name": "IT & Tech Support"
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "name": "Car Dealerships"
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "name": "Barbershops"
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "name": "Mental Health Practices"
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "name": "Travel & Tour Agencies"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -142,5 +321,6 @@
 <script src="/assets/reveal.js?v=20261006" defer></script>
 <script src="/assets/ui.js?v=20261006-human-first" defer></script>
 <script src="/assets/chat.js?v=20261008-human-first" defer></script>
+<script src="/assets/analytics.js?v=20261008" defer></script>
 </body>
 </html>

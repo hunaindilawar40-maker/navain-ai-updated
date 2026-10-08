@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Navain AI — fonts.css
+   Self-hosted webfonts. Licensed under the SIL Open Font License 1.1.
+     Fraunces   (c) Undercase Type / Jean-Baptiste Morizot  — variable, opsz+wght
+     Inter      (c) Rasmus Andersson                        — variable, wght
+     IBM Plex Mono (c) IBM Corp.                            — static 400/500/600/700
+
+   Why self-hosted instead of fonts.googleapis.com:
+   Loading fonts from Google sends every visitor's IP address to a third party
+   on every pageview. Hosting the files ourselves removes that disclosure
+   obligation entirely, drops two render-blocking third-party origins, and lets
+   the fonts inherit the site's own immutable cache policy.
+
+   Family names below are deliberately identical to the ones base.css already
+   references ("Fraunces", "Inter", "IBM Plex Mono"), so no other CSS changed.
+
+   Only the `latin` subset is shipped — it covers the site's copy. Add a
+   `latin-ext` block here if you start translating the site.
+   ========================================================================== */
+
+/* Fraunces — headings. Variable: opsz 9–144, wght 100–900.
+   wght 650 is used by h1/.brand-name/.stat-num, which needs a variable font. */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: normal;
+  src: url("/assets/fonts/fraunces-var.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Inter — body copy. Variable: wght 100–900. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: normal;
+  src: url("/assets/fonts/inter-var.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* IBM Plex Mono — kickers, stat labels, plan badges. Static, so one file per
+   weight actually used: 400, 500, 600, 700. */
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("/assets/fonts/plex-mono-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url("/assets/fonts/plex-mono-500.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url("/assets/fonts/plex-mono-600.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url("/assets/fonts/plex-mono-700.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}

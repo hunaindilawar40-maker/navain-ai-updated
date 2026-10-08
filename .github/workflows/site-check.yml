@@ -1,0 +1,32 @@
+# Navain AI — static site health check.
+#
+# Runs the zero-dependency tools/check-site.py on every push and pull request.
+# It validates HTML tag balance, internal links, JSON-LD validity and required
+# SEO/OG meta across all pages, so a broken link or malformed structured-data
+# block can never reach main silently.
+#
+# It needs only Python's stdlib, so there is no install step and it finishes in
+# a few seconds.
+
+name: site-check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  site-check:
+    name: Validate HTML, links & JSON-LD
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run static site health check
+        run: python3 tools/check-site.py

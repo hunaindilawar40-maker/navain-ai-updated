@@ -1287,6 +1287,21 @@ details.faq .faq-a {
 }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .form-grid .field-full { grid-column: 1 / -1; }
+
+/* Honeypot wrapper (see the `_gotcha` field in contact.html).
+   Deliberately NOT `display:none` or `visibility:hidden` — a large share of
+   form bots skip inputs hidden that way, which defeats the trap. Instead it is
+   pushed off-screen and collapsed to a single pixel, so it stays in the DOM and
+   in the accessibility-ignored subtree while remaining fillable by a bot. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form-field { display: flex; flex-direction: column; gap: 8px; }
 .form-field label {
   font-size: 13px;
