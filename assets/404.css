@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Navain AI — 404.css
+   Styles for 404.html only. Kept out of base.css so the shared stylesheet
+   stays free of single-page rules, and kept out of an inline <style> block so
+   the site can ship a Content-Security-Policy without 'unsafe-inline'.
+   ========================================================================== */
+
+/* Screen-reader-only utility. The site had no equivalent, and the 404 search
+   form needs a label that doesn't occupy visual space. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.err-code {
+  font-family: var(--font-mono);
+  font-size: clamp(3.2rem, 9vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: var(--grad-cm);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin: 0 0 10px;
+}
+
+.err-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.err-links a {
+  display: block;
+  padding: 15px 17px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.err-links a:hover,
+.err-links a:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(28, 53, 44, 0.09);
+}
+
+.err-links span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink-micro);
+  margin-top: 3px;
+}
+
+.err-search { margin-top: 34px; max-width: 460px; }
+
+.err-search form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.err-search input[type="search"] {
+  flex: 1 1 220px;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--field);
+  font: inherit;
+  color: var(--ink-body);
+}
+
+.err-help { margin-top: 26px; }

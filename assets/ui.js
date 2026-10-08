@@ -59,6 +59,17 @@
     var btn = form.querySelector("button[type=submit]");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
+      // Honeypot: `_gotcha` is Formspree's reserved spam-trap field name. It is
+      // rendered off-screen and given tabindex="-1", so a human never reaches
+      // it, but a bot that auto-fills every input will. Formspree silently
+      // discards any submission where it is non-empty; this early return stops
+      // the request from even leaving the browser. We mirror Formspree's own
+      // behaviour and show the same success message, so a bot gets no signal
+      // that it was caught.
+      var hp = form.querySelector('input[name="_gotcha"]');
+      if (hp && hp.value !== "") return;
+
       btn.disabled = true;
       status.className = "form-status";
       status.textContent = "Sending…";
@@ -69,11 +80,6 @@
       })
         .then(function (r) {
           if (!r.ok) throw new Error("Formspree " + r.status);
-          // Hide the fields/button/hint but keep the status element (it lives
-          // inside the form) so the thank-you message is what remains visible.
-          Array.prototype.forEach.call(form.children, function (el) {
-            if (el !== status) el.style.display = "none";
-          });
           // Hide the fields/button/hint but keep the status element (it lives
           // inside the form) so the thank-you message is what remains visible.
           Array.prototype.forEach.call(form.children, function (el) {

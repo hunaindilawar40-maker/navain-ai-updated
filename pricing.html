@@ -10,14 +10,14 @@
 <meta property="og:title" content="Pricing — Navain AI">
 <meta property="og:description" content="Simple month-to-month pricing: Essential $699/mo + $899 setup, Growth $999/mo + $1,399 setup, Enterprise custom. Every call answered within two rings, 24/7.">
 <meta property="og:url" content="https://navainai.com/pricing.html">
-<meta property="og:image" content="https://navainai.com/assets/og-banner.png">
+<meta property="og:image" content="https://navainai.com/assets/og-pricing.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Navain AI">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pricing — Navain AI">
 <meta name="twitter:description" content="Simple month-to-month pricing: Essential $699/mo + $899 setup, Growth $999/mo + $1,399 setup, Enterprise custom. Every call answered within two rings, 24/7.">
-<meta name="twitter:image" content="https://navainai.com/assets/og-banner.png">
+<meta name="twitter:image" content="https://navainai.com/assets/og-pricing.png">
 <link rel="canonical" href="https://navainai.com/pricing.html">
 <!-- Use one stable, crawlable apex-host URL as the primary Search favicon.
      Google applies a single favicon to every result from this hostname. -->
@@ -29,11 +29,180 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#1C352C">
 <meta name="application-name" content="Navain AI">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Self-hosted webfonts. No request to fonts.googleapis.com, so no visitor IP
+     is sent to a third party on pageview. The two variable faces are preloaded
+     because both render above the fold; `crossorigin` is required for fonts. -->
+<link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css?v=20261008-selfhosted">
 <link rel="stylesheet" href="/assets/base.css?v=20261008-human-first">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://navainai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pricing",
+          "item": "https://navainai.com/pricing.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://navainai.com/pricing.html#",
+      "url": "https://navainai.com/pricing.html",
+      "name": "Pricing",
+      "description": "Navain AI plans and pricing: Essential, Growth and Enterprise, with a full feature comparison.",
+      "isPartOf": {
+        "@id": "https://navainai.com/#website"
+      },
+      "about": {
+        "@id": "https://navainai.com/#organization"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Product",
+      "@id": "https://navainai.com/pricing.html#product",
+      "name": "Navain AI",
+      "description": "A 24/7 AI phone receptionist for service businesses. Essential is $699/month plus a one-time $899 setup; Growth is $999/month plus a one-time $1,399 setup. Enterprise is quoted individually and adds a dedicated account manager, custom integrations, white-label and an SLA.",
+      "brand": {
+        "@id": "https://navainai.com/#organization"
+      },
+      "image": "https://navainai.com/assets/icon-512.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Essential",
+          "price": "699",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://navainai.com/pricing.html",
+          "description": "The front desk — AI receptionist on your existing number.",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Navain AI — Essential"
+          },
+          "addOn": {
+            "@type": "Offer",
+            "name": "One-time setup",
+            "price": "899",
+            "priceCurrency": "USD",
+            "description": "One-time onboarding and voice/script setup."
+          },
+          "businessFunction": "https://schema.org/Sell",
+          "eligibleQuantity": {
+            "@type": "QuantitativeValue",
+            "value": 1,
+            "unitCode": "MON"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "AI receptionist on your existing number"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "Appointment booking with calendar sync"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "Call summaries by email and SMS"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "24/7 coverage"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "Custom agent voice and script"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "Live within 24 hours"
+            }
+          ]
+        },
+        {
+          "@type": "Offer",
+          "name": "Growth",
+          "price": "999",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://navainai.com/pricing.html",
+          "description": "The busy line — everything in Essential plus CRM and multi-location.",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Navain AI — Growth"
+          },
+          "addOn": {
+            "@type": "Offer",
+            "name": "One-time setup",
+            "price": "1399",
+            "priceCurrency": "USD",
+            "description": "One-time onboarding and voice/script setup."
+          },
+          "businessFunction": "https://schema.org/Sell",
+          "eligibleQuantity": {
+            "@type": "QuantitativeValue",
+            "value": 1,
+            "unitCode": "MON"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "Everything in Essential"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "SMS follow-up after every call"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "CRM integration with HubSpot and Go High Level"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "Multi-location support"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "Priority onboarding"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Included",
+              "value": "Monthly performance report"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -200,5 +369,6 @@
 <script src="/assets/reveal.js?v=20261006" defer></script>
 <script src="/assets/ui.js?v=20261006-human-first" defer></script>
 <script src="/assets/chat.js?v=20261008-human-first" defer></script>
+<script src="/assets/analytics.js?v=20261008" defer></script>
 </body>
 </html>
