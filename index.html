@@ -35,7 +35,7 @@
 <link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=20261008-selfhosted">
-<link rel="stylesheet" href="/assets/base.css?v=20261008-human-first">
+<link rel="stylesheet" href="/assets/base.css?v=20261012-conversion-upgrades">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -115,12 +115,12 @@
         "@type": "Place",
         "name": "North America"
       },
-      "description": "A 24/7 AI phone receptionist that answers every call within two rings in the business's own voice, books appointments from a live calendar, and sends the owner a text and email summary after every call. No hardware, no contracts, live on the customer's existing number within 24 hours.",
+      "description": "A 24/7 AI phone receptionist that answers every call within two rings in the business's own voice, books appointments from a live calendar, and sends the owner a text and email summary after every call plus an end-of-week summary of call volume and where Navain helped. No hardware, no contracts, live on the customer's existing number within 24 hours.",
       "offers": [
         {
           "@type": "Offer",
           "name": "Essential plan",
-          "description": "AI receptionist on your existing number, appointment booking with calendar sync, call summaries by email and SMS, 24/7 coverage, custom agent voice and script, live within 24 hours. $699 per month plus $899 one-time setup.",
+          "description": "AI receptionist on your existing number, appointment booking with calendar sync, call summaries by email and SMS, weekly owner summary of call volume and where Navain helped, 24/7 coverage, custom agent voice and script, live within 24 hours. $699 per month plus $899 one-time setup. Fees shown for this plan are fixed. Call credits are included; confirm the allowance for expected weekly call volume.",
           "price": "699.00",
           "priceCurrency": "USD",
           "url": "https://navainai.com/pricing.html"
@@ -128,7 +128,7 @@
         {
           "@type": "Offer",
           "name": "Growth plan",
-          "description": "Everything in Essential plus SMS follow-up after every call, CRM integration with HubSpot and Go High Level, multi-location support, priority onboarding, and a monthly performance report. $999 per month plus $1,399 one-time setup.",
+          "description": "Everything in Essential, including a weekly owner summary, plus SMS follow-up after every call, CRM integration with HubSpot and Go High Level, multi-location support, priority onboarding, and a monthly performance report. $999 per month plus $1,399 one-time setup. Fees shown for this plan are fixed. Call credits are included; confirm the allowance for expected weekly call volume.",
           "price": "999.00",
           "priceCurrency": "USD",
           "url": "https://navainai.com/pricing.html"
@@ -184,7 +184,7 @@
           "name": "How much does Navain AI cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Essential is $699/month plus an $899 one-time setup. Growth is $999/month plus a $1,399 one-time setup, and adds SMS follow-up after every call, CRM integration with HubSpot and Go High Level, multi-location support, priority onboarding, and a monthly performance report. Enterprise is custom-priced with a dedicated account manager, custom integrations, white-label, and an SLA. Every plan is month-to-month."
+            "text": "All plans are month-to-month. Essential is $699/month plus an $899 one-time setup, and Growth is $999/month plus a $1,399 one-time setup; these monthly and setup fees are fixed for each plan. Growth adds SMS follow-up after every call, CRM integration with HubSpot and Go High Level, multi-location support, priority onboarding, and a monthly performance report. Enterprise is custom-priced. Call credits are included; confirm the allowance for your expected weekly volume before signup. After week one, if usage fits the selected plan, it stays unchanged. If it exceeds included credits, we contact you to ask whether you want to add credits; any revised fee requires your approval before a change. Owners receive an end-of-week summary of call volume and where Navain helped."
           }
         },
         {
@@ -213,10 +213,10 @@
       <a href="/how-it-works.html">How it works</a>
       <a href="/why-navain.html">Why Navain</a>
       <a href="/industries.html">Industries</a>
-      <a href="/testimonials.html">Testimonials</a>
+      <a href="/testimonials.html">Call examples</a>
       <a href="/about.html">About us</a>
       <a href="/pricing.html">Pricing</a>
-      <a class="btn btn-primary btn-sm nav-cta" href="/contact.html">Talk to a person</a>
+      <a class="btn btn-primary btn-sm nav-cta" href="https://calendly.com/navainai" target="_blank" rel="noopener noreferrer" data-analytics-event="Calendly Booking Click">Book a demo</a>
     </nav>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -233,7 +233,7 @@
       <p class="lede">You have customers to look after and a business to run. Navain is your AI receptionist for the moments you're on a job, with another customer, or off the clock. It answers in your business's voice, books from your live calendar, and follows your handoff plan when a caller needs a person.</p>
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" href="#calculator">Estimate my missed calls <span aria-hidden="true">↓</span></a>
-        <a class="btn btn-ghost btn-lg" href="/contact.html">Talk with our team</a>
+        <a class="btn btn-ghost btn-lg" href="https://calendly.com/navainai" target="_blank" rel="noopener noreferrer" data-analytics-event="Calendly Booking Click">Book a demo</a>
       </div>
       <div class="hero-stats" aria-label="Navain at a glance">
         <div class="hstat"><span class="stat-num">2 rings</span><span class="hstat-label">before a caller hears hello</span></div>
@@ -372,7 +372,7 @@
       <div class="step-card reveal">
         <span class="step-num">04 · Keep you in the loop</span>
         <h3>Know what happened</h3>
-        <p>A text and email summary arrives after every call, so you can see who reached out and what they need—even when you were busy.</p>
+        <p>A text and email summary arrives after every call. At the end of each week, the owner also gets a summary of call volume and where Navain helped.</p>
       </div>
     </div>
   </div>
@@ -384,7 +384,7 @@
       <p class="kicker">A little more room in your day</p>
       <h2>Let the phone be one less thing to carry.</h2>
     </div>
-    <div class="grid grid-2">
+    <div class="grid grid-3">
       <div class="benefit-card reveal">
         <span class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
         <h3>Keep the way you sound</h3>
@@ -405,6 +405,16 @@
         <h3>Fits into the setup you already have</h3>
         <p>Keep your existing number. There’s no hardware to install and no long-term contract—most teams are live within 24 hours.</p>
       </div>
+      <div class="benefit-card reveal">
+        <span class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-6"/></svg></span>
+        <h3>A weekly owner summary</h3>
+        <p>At the end of each week, review call volume and activity showing where Navain helped.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <span class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></span>
+        <h3>A first-week credit check</h3>
+        <p>We compare actual calls with your selected plan after week one. If it fits, nothing changes; if it exceeds included credits, we’ll ask whether you want to add credits. Any revised fee needs your approval before a change.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -417,9 +427,10 @@
       <p class="sub">If a missed call costs you work, Navain AI is for you.</p>
     </div>
     <div class="chip-grid">
-      <a class="chip" href="/industries.html">HVAC &amp; Plumbing</a>
+      <a class="chip" href="/hvac.html">HVAC teams</a>
+      <a class="chip" href="/plumbing.html">Plumbing teams</a>
       <a class="chip" href="/industries.html">Dental &amp; Medical</a>
-      <a class="chip" href="/industries.html">Salons &amp; Spas</a>
+      <a class="chip" href="/salons.html">Salons &amp; Spas</a>
       <a class="chip" href="/industries.html">Law Offices</a>
       <a class="chip" href="/industries.html">Real Estate</a>
       <a class="chip" href="/industries.html">Auto Repair</a>
@@ -454,40 +465,28 @@
   <div class="container">
     <div class="section-head">
       <p class="kicker">Example call stories</p>
-      <h2>A few ways a busy workday can sound</h2>
-      <p class="sub">These are illustrative scenarios—not customer endorsements—showing how Navain could fit into roofing, restaurant, and accounting workflows.</p>
+      <h2>Sample calls across a few service businesses</h2>
+      <p class="sub">These are hypothetical workflows, not customer reviews or measured results. Actual call handling depends on the script, tools, and escalation rules configured for each business.</p>
     </div>
-    <div class="grid grid-3">
-      <figure class="quote-card reveal">
-        <span class="quote-draft-badge">Example · Roofing</span>
-        <span class="quote-mark" aria-hidden="true">“</span>
-        <blockquote>Storm calls don't wait for us to get off the roof. Navain answers, gets the property address and a clear description of the issue, then follows our urgent-call rules. By the time I'm back on the ground, I know who needs a callback first.</blockquote>
-        <figcaption class="quote-who">
-          <span class="quote-avatar" aria-hidden="true">RF</span>
-          <span><span class="quote-name">Roofing business owner</span><span class="quote-role">Illustrative call scenario</span></span>
-        </figcaption>
-      </figure>
-      <figure class="quote-card reveal">
-        <span class="quote-draft-badge">Example · Restaurant</span>
-        <span class="quote-mark" aria-hidden="true">“</span>
-        <blockquote>During dinner service, every phone ring competes with the guests in front of us. Now callers can get our hours and reservation information without pulling a team member away, and anything the AI can't sort out is captured for follow-up.</blockquote>
-        <figcaption class="quote-who">
-          <span class="quote-avatar" aria-hidden="true">RT</span>
-          <span><span class="quote-name">Restaurant owner</span><span class="quote-role">Illustrative call scenario</span></span>
-        </figcaption>
-      </figure>
-      <figure class="quote-card reveal">
-        <span class="quote-draft-badge">Example · Accounting</span>
-        <span class="quote-mark" aria-hidden="true">“</span>
-        <blockquote>At tax time, routine calls about availability and documents can break up an entire afternoon. Navain handles straightforward office questions and sends anything client-specific or complex to us with the reason for the call, so we can call back prepared.</blockquote>
-        <figcaption class="quote-who">
-          <span class="quote-avatar" aria-hidden="true">AC</span>
-          <span><span class="quote-name">Accounting firm owner</span><span class="quote-role">Illustrative call scenario</span></span>
-        </figcaption>
-      </figure>
+    <div class="grid grid-3 scenario-grid">
+      <article class="scenario-card reveal">
+        <span class="quote-draft-badge">Scenario · Roofing</span>
+        <h2>A service request while the crew is on site</h2>
+        <p>A caller asks about storm damage while the team is on a roof. Navain can capture the property location and request details, then follow the urgency and callback instructions the business has configured.</p>
+      </article>
+      <article class="scenario-card reveal">
+        <span class="quote-draft-badge">Scenario · Restaurant</span>
+        <h2>A question during the dinner rush</h2>
+        <p>A caller asks about hours or a reservation while staff are serving guests. Navain can share approved general information and capture a request for booking or staff follow-up according to the restaurant's setup.</p>
+      </article>
+      <article class="scenario-card reveal">
+        <span class="quote-draft-badge">Scenario · Accounting</span>
+        <h2>A routine office question at a busy time</h2>
+        <p>Navain can answer approved general questions about reaching the office and pass client-specific or sensitive requests to the accounting team for a personal response.</p>
+      </article>
     </div>
     <div class="cta-actions">
-      <a class="btn btn-ghost" href="/testimonials.html">Explore all industry stories</a>
+      <a class="btn btn-ghost" href="/testimonials.html">View all sample call stories</a>
     </div>
   </div>
 </section>
@@ -538,11 +537,12 @@
           <li><span class="mark">✓</span> AI receptionist on your existing number</li>
           <li><span class="mark">✓</span> Appointment booking with calendar sync</li>
           <li><span class="mark">✓</span> Call summaries by email and SMS</li>
+          <li><span class="mark">✓</span> Weekly owner summary of call volume and where Navain helped</li>
           <li><span class="mark">✓</span> 24/7 coverage</li>
           <li><span class="mark">✓</span> Custom agent voice and script</li>
           <li><span class="mark">✓</span> Live within 24 hours</li>
         </ul>
-        <a class="btn btn-ghost" href="/contact.html">Start with Essential</a>
+        <a class="btn btn-ghost" href="/contact.html?intent=pricing&amp;plan=essential#contact-form">Start with Essential</a>
       </div>
       <div class="price-card featured reveal">
         <span class="tag-popular">Most popular</span>
@@ -558,7 +558,7 @@
           <li><span class="mark">✓</span> Priority onboarding</li>
           <li><span class="mark">✓</span> Monthly performance report</li>
         </ul>
-        <a class="btn btn-primary" href="/contact.html">Get Growth</a>
+        <a class="btn btn-primary" href="/contact.html?intent=pricing&amp;plan=growth#contact-form">Get Growth</a>
       </div>
       <div class="price-card reveal">
         <p class="price-plan">Enterprise</p>
@@ -569,12 +569,16 @@
           <li><span class="mark">✓</span> Dedicated account manager</li>
           <li><span class="mark">✓</span> Custom integrations</li>
           <li><span class="mark">✓</span> White-label</li>
+          <li><span class="mark">✓</span> Weekly owner summary of call volume and where Navain helped</li>
           <li><span class="mark">✓</span> SLA</li>
         </ul>
-        <a class="btn btn-ghost" href="/contact.html">Talk to us</a>
+        <a class="btn btn-ghost" href="/contact.html?intent=pricing&amp;plan=enterprise#contact-form">Talk to us</a>
       </div>
     </div>
     <p class="price-note">Every plan is month-to-month. Setup is one-time. <a href="/pricing.html">See the full comparison →</a></p>
+    <aside class="pricing-detail-note" role="note">
+      <p><strong>Essential and Growth fees are fixed at the listed amounts.</strong> Share your expected weekly volume and choose a plan so we can confirm its included credit allowance. After the first week, if actual volume is within the plan, nothing changes. If it exceeds the included credits, we’ll ask whether you want to add credits; any revised fee needs your approval before a change. Owners receive an end-of-week summary of call volume and where Navain helped. <a href="/pricing.html">See how the review works.</a></p>
+    </aside>
   </div>
 </section>
 
@@ -609,7 +613,7 @@
 </details>
 <details class="faq">
 <summary>How much does Navain AI cost?</summary>
-<div class="faq-a"><p>Essential is $699/month plus an $899 one-time setup. Growth is $999/month plus a $1,399 one-time setup, and adds SMS follow-up after every call, CRM integration with HubSpot and Go High Level, multi-location support, priority onboarding, and a monthly performance report. Enterprise is custom-priced with a dedicated account manager, custom integrations, white-label, and an SLA. Every plan is month-to-month.</p></div>
+<div class="faq-a"><p>All plans are month-to-month. Essential is $699/month plus an $899 one-time setup, and Growth is $999/month plus a $1,399 one-time setup; these monthly and setup fees are fixed for each plan. Growth adds SMS follow-up after every call, CRM integration with HubSpot and Go High Level, multi-location support, priority onboarding, and a monthly performance report. Enterprise is custom-priced. Call credits are included; confirm the allowance for your expected weekly volume before signup. After week one, if usage fits the selected plan, it stays unchanged. If it exceeds included credits, we contact you to ask whether you want to add credits; any revised fee requires your approval before a change. Owners receive an end-of-week summary of call volume and where Navain helped.</p></div>
 </details>
 <details class="faq">
 <summary>Can I cancel anytime?</summary>
@@ -663,7 +667,7 @@
       <a href="/how-it-works.html">How it works</a>
       <a href="/why-navain.html">Why Navain</a>
       <a href="/industries.html">Industries</a>
-      <a href="/testimonials.html">Testimonials</a>
+      <a href="/testimonials.html">Call examples</a>
       <a href="/about.html">About us</a>
       <a href="/pricing.html">Pricing</a>
       <a href="/contact.html">Contact</a>
@@ -681,8 +685,8 @@
   </div>
 </footer>
 <script src="/assets/reveal.js?v=20261006" defer></script>
-<script src="/assets/ui.js?v=20261006-human-first" defer></script>
-<script src="/assets/chat.js?v=20261008-human-first" defer></script>
-<script src="/assets/analytics.js?v=20261008" defer></script>
+<script src="/assets/ui.js?v=20261013-weekly-credit-review" defer></script>
+<script src="/assets/chat.js?v=20261013-weekly-credit-review" defer></script>
+<script src="/assets/analytics.js?v=20261012-events" defer></script>
 </body>
 </html>
