@@ -2,6 +2,10 @@
 (function () {
   "use strict";
 
+  function track(name) {
+    if (typeof window.plausible === "function") window.plausible(name);
+  }
+
   /* ---------- Mobile nav drawer ---------- */
   var toggle = document.querySelector(".nav-toggle");
   var links = document.getElementById("nav-links");
@@ -57,6 +61,30 @@
   if (form) {
     var status = document.getElementById("form-status");
     var btn = form.querySelector("button[type=submit]");
+    var interest = form.querySelector("#f-interest");
+    var selectedPlan = form.querySelector("#f-plan");
+    var message = form.querySelector("#f-message");
+
+    // Campaign links preselect the form's interest and, when present, plan.
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var intent = params.get("intent");
+      var plan = params.get("plan");
+      var validPlans = { essential: true, growth: true, enterprise: true };
+      var prefills = {
+        demo: { choice: "demo", message: "I'd like to request a 15-minute product demo." },
+        pricing: { choice: "pricing", message: "Please confirm the included credit allowance for my expected weekly call volume and explain the first-week usage review. I understand the listed plan fee is fixed." }
+      };
+      var prefill = Object.prototype.hasOwnProperty.call(prefills, intent) ? prefills[intent] : null;
+      if (prefill) {
+        if (interest) interest.value = prefill.choice;
+        if (message && !message.value) message.value = prefill.message;
+      }
+      if (selectedPlan && Object.prototype.hasOwnProperty.call(validPlans, plan)) {
+        selectedPlan.value = plan;
+      }
+    } catch (err) {}
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -80,12 +108,15 @@
       })
         .then(function (r) {
           if (!r.ok) throw new Error("Formspree " + r.status);
+          var requestedInterest = interest ? interest.value : "";
           // Hide the fields/button/hint but keep the status element (it lives
           // inside the form) so the thank-you message is what remains visible.
           Array.prototype.forEach.call(form.children, function (el) {
             if (el !== status) el.style.display = "none";
           });
           form.reset();
+          track(requestedInterest === "demo" ? "Demo Request Submitted" :
+            requestedInterest === "pricing" ? "Pricing Question Submitted" : "Contact Form Submitted");
           status.className = "form-status success";
           status.innerHTML =
             '<span class="check" aria-hidden="true">✓</span>' +
@@ -93,6 +124,7 @@
             "We have your details and will reply from info@navainai.com, usually the same business day.";
         })
         .catch(function () {
+          track("Contact Form Error");
           status.className = "form-status error";
           status.innerHTML =
             "<strong>That didn’t go through.</strong> Please try again, or email us directly at " +
@@ -126,8 +158,15 @@
       figure.textContent = fmt(monthly) + " / mo";
       note.textContent = "About " + Math.round(calls * 4.33) + " calls a month, at your weekly pace.";
     };
+    var calculatorTracked = false;
     [cCalls, cValue, cRate].forEach(function (el) {
-      el.addEventListener("input", recalc);
+      el.addEventListener("input", function () {
+        recalc();
+        if (!calculatorTracked) {
+          calculatorTracked = true;
+          track("Calculator Used");
+        }
+      });
     });
     recalc();
   }

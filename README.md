@@ -1,7 +1,7 @@
 # navain-ai-updated
 # Navain AI — Marketing Website
 
-The complete **Navain AI** marketing site: ten content pages plus a branded 404,
+The complete **Navain AI** marketing site: thirteen content pages plus a branded 404,
 a working AI chatbot (**Stacy**), a spam-protected Formspree contact form,
 self-hosted webfonts, per-page social preview images, full structured data, and a
 CI health check. No build step, no bundled libraries — plain HTML, one shared
@@ -18,14 +18,15 @@ A [Pontis Construction Inc.](https://www.pontisconstruction.com/) company ·
 
 | File | Purpose |
 |---|---|
-| `index.html` | Human-first hero, immediate revenue calculator, trust signals, call flow, benefits, industries, testimonials, pricing, FAQ, CTA + JSON-LD |
-| `how-it-works.html` | Ring → Understand → Resolve → Notify, 24-hour setup |
+| `index.html` | Human-first hero, missed-calls calculator, trust signals, call flow, industry links, pricing, FAQ, CTAs + JSON-LD |
+| `how-it-works.html` | Ring → Understand → Resolve → Notify, 24-hour setup, first-week usage review, weekly owner summary |
 | `why-navain.html` | Positioning + honest comparison table |
-| `industries.html` | All served industries |
-| `testimonials.html` | Transparent, illustrative call stories across nine service-business niches |
+| `industries.html` | All served industries, with focused pages linked for key workflows |
+| `plumbing.html` / `hvac.html` / `salons.html` | Industry-specific call workflows and FAQs |
+| `testimonials.html` | Call examples: clearly labeled hypothetical workflows, not endorsements |
 | `about.html` | Pontis Construction origin story |
-| `pricing.html` | Plans + full comparison table |
-| `contact.html` | Formspree contact form |
+| `pricing.html` | Fixed Essential/Growth fees, custom Enterprise pricing, full comparison and weekly-volume credit review |
+| `contact.html` | Calendly demo booking and Formspree contact form with plan and weekly-volume fields |
 | `privacy.html` / `terms.html` | Legal |
 
 Every page: sticky nav with hamburger drawer under 760px, the floating chat
@@ -186,7 +187,7 @@ Vercel rewrites `/pl/js/script.js` → `plausible.io` and `/pl/api/event` →
 `plausible.io/api/event`. From the browser's point of view every request stays
 same-origin, so the CSP keeps `script-src 'self'` / `connect-src 'self'`, and it
 survives most ad blockers. It sets no cookies and is disclosed in the privacy
-policy. To disable, set `ANALYTICS_DOMAIN = ""` in `assets/analytics.js`.
+policy. It also records privacy-conscious events for Calendly booking/contact clicks, form success or delivery errors, phone/email clicks, calculator use, and chat opens. No form fields or chat text are sent. To disable, set `ANALYTICS_DOMAIN = ""` in `assets/analytics.js`.
 
 **Action required:** create the site in your Plausible account (domain
 `navainai.com`) for events to actually record. Until then the script loads
@@ -201,12 +202,12 @@ typo'd or stale link never dead-ends a prospect.
 ## Structured data (all pages)
 
 `index.html` has the full `@graph` (Organization, WebSite, Service, FAQPage).
-The other nine pages now carry their own JSON-LD: `BreadcrumbList` everywhere,
+The content pages carry their own JSON-LD: `BreadcrumbList` and relevant page types,
 plus `AboutPage`/`ContactPage`/`CollectionPage`/`WebPage` as appropriate, an
-`ItemList` of the real industries on `industries.html`, and a `Product` with the
-two real `Offer`s on `pricing.html`. Testimonials deliberately get **no**
-`Review`/`aggregateRating` markup because the page states its stories are
-illustrative — marking them up as reviews would misstate that to Google.
+`ItemList` of the industries on `industries.html`, and a `Product` with the
+two real `Offer`s on `pricing.html`. The call-examples page deliberately gets
+**no** `Review`/`aggregateRating` markup because its workflows are illustrative,
+not customer endorsements.
 
 ## Per-page social previews
 
@@ -248,7 +249,7 @@ python3 tools/check-site.py
   by social crawlers, and those handle PNG/JPEG more reliably than WebP, so
   converting it risks breaking previews. There is effectively nothing to
   optimize in the render path.
-- **Real customer testimonials.** The current stories are honestly labeled
-  "illustrative." Fabricating named endorsements would be dishonest and would
-  also breach Google's self-serving-review policy. Add real quotes as soon as
-  you have them.
+- **Unverified customer testimonials.** The call-example page uses hypothetical
+  workflows and labels them plainly. Add customer-approved quotes or measured
+  case studies only when you have permission and verifiable details; never turn
+  the examples into endorsements.

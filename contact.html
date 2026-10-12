@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact — Navain AI</title>
-<meta name="description" content="Get started with Navain AI — send your name, business, and daily call volume, or email info@navainai.com. We reply the same business day.">
+<meta name="description" content="Book a short Navain AI demo through Calendly, or send the team a message. We usually reply to enquiries the same business day.">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contact — Navain AI">
-<meta property="og:description" content="Get started with Navain AI — send your name, business, and daily call volume, or email info@navainai.com. We reply the same business day.">
+<meta property="og:description" content="Book a short Navain AI demo through Calendly, or send the team a message. We usually reply to enquiries the same business day.">
 <meta property="og:url" content="https://navainai.com/contact.html">
 <meta property="og:image" content="https://navainai.com/assets/og-contact.png">
 <meta property="og:image:width" content="1200">
@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Navain AI">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact — Navain AI">
-<meta name="twitter:description" content="Get started with Navain AI — send your name, business, and daily call volume, or email info@navainai.com. We reply the same business day.">
+<meta name="twitter:description" content="Book a short Navain AI demo through Calendly, or send the team a message. We usually reply to enquiries the same business day.">
 <meta name="twitter:image" content="https://navainai.com/assets/og-contact.png">
 <link rel="canonical" href="https://navainai.com/contact.html">
 <!-- Use one stable, crawlable apex-host URL as the primary Search favicon.
@@ -35,7 +35,7 @@
 <link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=20261008-selfhosted">
-<link rel="stylesheet" href="/assets/base.css?v=20261008-human-first">
+<link rel="stylesheet" href="/assets/base.css?v=20261012-conversion-upgrades">
 
 <script type="application/ld+json">
 {
@@ -88,10 +88,10 @@
       <a href="/how-it-works.html">How it works</a>
       <a href="/why-navain.html">Why Navain</a>
       <a href="/industries.html">Industries</a>
-      <a href="/testimonials.html">Testimonials</a>
+      <a href="/testimonials.html">Call examples</a>
       <a href="/about.html">About us</a>
       <a href="/pricing.html">Pricing</a>
-      <a class="btn btn-primary btn-sm nav-cta" href="/contact.html" aria-current="page">Talk to a person</a>
+      <a class="btn btn-primary btn-sm nav-cta" href="https://calendly.com/navainai" target="_blank" rel="noopener noreferrer" data-analytics-event="Calendly Booking Click">Book a demo</a>
     </nav>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -104,7 +104,11 @@
   <div class="container">
     <p class="kicker">Contact</p>
     <h1>Let's get your calls answered.</h1>
-    <p class="lede">Tell us a little about your business and we'll come back with next steps — usually the same business day. Your AI receptionist can be live within 24 hours of signup.</p>
+    <p class="lede">Book a short product walkthrough directly, or send our team a message with your expected weekly call volume and the plan you’re considering. We usually reply to enquiries the same business day.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="https://calendly.com/navainai" target="_blank" rel="noopener noreferrer" data-analytics-event="Calendly Booking Click">Book a 15-minute demo</a>
+      <a class="btn btn-ghost btn-lg" href="#contact-form">Send a message</a>
+    </div>
   </div>
 </section>
 
@@ -142,13 +146,29 @@
             <input type="tel" id="f-phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel" required>
           </div>
           <div class="form-field field-full">
-            <label for="f-volume">Daily call volume</label>
-            <select id="f-volume" name="daily_call_volume" required>
-              <option value="under-10">Under 10 calls a day</option>
-              <option value="10-30" selected>10–30 calls a day</option>
-              <option value="30-60">30–60 calls a day</option>
-              <option value="60-plus">60+ calls a day</option>
+            <label for="f-interest">What would you like to discuss? (optional)</label>
+            <select id="f-interest" name="interest">
+              <option value="">Choose one (optional)</option>
+              <option value="demo">Request a 15-minute product demo</option>
+              <option value="pricing">Plans and pricing</option>
+              <option value="call-flow">How Navain could fit my call flow</option>
+              <option value="other">Something else</option>
             </select>
+          </div>
+          <div class="form-field field-full">
+            <label for="f-plan">Plan you’re considering</label>
+            <select id="f-plan" name="selected_plan" required>
+              <option value="" selected disabled>Choose a plan</option>
+              <option value="essential">Essential</option>
+              <option value="growth">Growth</option>
+              <option value="enterprise">Enterprise</option>
+              <option value="help-me-choose">Help me choose</option>
+            </select>
+          </div>
+          <div class="form-field field-full">
+            <label for="f-volume">Estimated calls per week</label>
+            <input type="number" id="f-volume" name="weekly_call_volume" min="0" step="1" inputmode="numeric" placeholder="e.g. 100" aria-describedby="f-volume-hint" required>
+            <p class="form-hint" id="f-volume-hint">A rough estimate is fine; we review actual volume after the first week.</p>
           </div>
           <div class="form-field field-full">
             <label for="f-message">Message</label>
@@ -156,7 +176,7 @@
           </div>
         </div>
         <button class="btn btn-primary btn-lg" type="submit">Send to our team</button>
-        <p class="form-hint">We'll only use your details to reply about Navain AI. No lists, no spam.</p>
+        <p class="form-hint">We'll only use your details to reply about Navain AI. To reserve a demo time, book directly through Calendly above; this form is for questions or a follow-up request.</p>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -195,7 +215,7 @@
       <a href="/how-it-works.html">How it works</a>
       <a href="/why-navain.html">Why Navain</a>
       <a href="/industries.html">Industries</a>
-      <a href="/testimonials.html">Testimonials</a>
+      <a href="/testimonials.html">Call examples</a>
       <a href="/about.html">About us</a>
       <a href="/pricing.html">Pricing</a>
       <a href="/contact.html">Contact</a>
@@ -213,8 +233,8 @@
   </div>
 </footer>
 <script src="/assets/reveal.js?v=20261006" defer></script>
-<script src="/assets/ui.js?v=20261006-human-first" defer></script>
-<script src="/assets/chat.js?v=20261008-human-first" defer></script>
-<script src="/assets/analytics.js?v=20261008" defer></script>
+<script src="/assets/ui.js?v=20261013-weekly-credit-review" defer></script>
+<script src="/assets/chat.js?v=20261013-weekly-credit-review" defer></script>
+<script src="/assets/analytics.js?v=20261012-events" defer></script>
 </body>
 </html>
