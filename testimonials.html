@@ -30,7 +30,7 @@
 <link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=20261008-selfhosted">
-<link rel="stylesheet" href="/assets/base.css?v=20261012-conversion-upgrades">
+<link rel="stylesheet" href="/assets/base.css?v=20261014-p0-features">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,6 +71,7 @@
       <a href="/testimonials.html" aria-current="page">Call examples</a>
       <a href="/about.html">About us</a>
       <a href="/pricing.html">Pricing</a>
+      <a href="/integrations.html">Integrations</a>
       <a class="btn btn-primary btn-sm nav-cta" href="/contact.html">Talk to us</a>
     </nav>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
@@ -85,6 +86,59 @@
     <p class="kicker">Call examples</p>
     <h1>Sample workflows for a busy workday.</h1>
     <p class="lede">Every business has calls that arrive at the wrong moment. These examples show how a receptionist configured around your services, calendar, and handoff rules could help.</p>
+  </div>
+</section>
+
+<section class="section section-alt reveal" id="simulator" aria-labelledby="simulator-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Read a call — no audio</p>
+      <h2 id="simulator-title">A sample call, in writing.</h2>
+      <p class="sub">Pick a trade and read exactly how a fictional call could go, line by line — then see the written summary the owner receives. We don't play, record, or clone any real person's voice, so our examples are written instead of “listened to”.</p>
+    </div>
+    <div class="sim-wrap">
+      <p class="sim-note"><strong>Fictional example.</strong> Every name, business, and detail below is made up. This is a written transcript for illustration — not a recording of a real call, not a customer story, and not a promise that every call follows this path.</p>
+      <div class="sim-controls">
+        <div class="sim-field">
+          <label for="sim-scenario">Choose a fictional scenario</label>
+          <select id="sim-scenario" name="scenario">
+            <option value="plumbing-leak">Plumbing — leak after hours</option>
+            <option value="hvac-no-heat">HVAC — no heating, evening</option>
+            <option value="salon-booking">Salon — booking while every chair is busy</option>
+            <option value="roofing-inspection">Roofing — inspection request while the crew is on site</option>
+            <option value="dental-reschedule">Dental — moving an appointment</option>
+            <option value="restaurant-reservation">Restaurant — reservation during the dinner rush</option>
+          </select>
+        </div>
+      </div>
+      <div class="sim-transcript" id="sim-transcript" aria-live="polite" aria-label="Fictional written call transcript"></div>
+      <p class="sim-status" id="sim-status" role="status" aria-live="polite"></p>
+      <div class="sim-actions">
+        <button class="btn btn-primary btn-sm" type="button" id="sim-step">Read next line</button>
+        <button class="btn btn-ghost btn-sm" type="button" id="sim-all">Show the full transcript</button>
+        <button class="btn btn-ghost btn-sm" type="button" id="sim-reset">Start again</button>
+      </div>
+      <div class="sim-summary" id="sim-summary" hidden></div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="branching-simulator" aria-labelledby="branching-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Now you be the caller</p>
+      <h2 id="branching-title">Choose what to say. See what happens.</h2>
+      <p class="sub">Same rule as above: fictional and written. Tap a reply and Navain (in this example, a plumbing business) answers in text — including the urgent path, where a person takes over. No audio, no recording, no real person's voice.</p>
+    </div>
+    <div class="sim-wrap">
+      <p class="sim-note"><strong>Fictional example.</strong> “Example Plumbing Co.”, its hours, and its time slots are made up to show the shape of a conversation — not a real business, customer, or result.</p>
+      <div class="sim-transcript" id="branch-transcript" aria-live="polite" aria-label="Fictional branching call transcript"></div>
+      <div class="branch-choices" id="branch-choices" role="group" aria-label="Choose what the caller says"></div>
+      <div class="sim-actions">
+        <button class="btn btn-ghost btn-sm" type="button" id="branch-restart">Start the call again</button>
+      </div>
+      <div class="sim-summary" id="branch-summary" hidden></div>
+    </div>
   </div>
 </section>
 
@@ -157,7 +211,7 @@
 <footer class="site-footer">
   <div class="container">
     <span class="footer-brand"><img class="footer-logo" src="/assets/logo.svg" alt="" width="28" height="28" aria-hidden="true">Navain AI</span>
-    <p class="footer-tag">The 24/7 AI phone receptionist for service businesses. Every call answered within two rings, in your own voice.</p>
+    <p class="footer-tag">The 24/7 AI phone receptionist for service businesses. Every call answered within two rings — booked, summarized, and sent to you.</p>
     <nav class="footer-links" aria-label="Footer">
       <a href="/how-it-works.html">How it works</a>
       <a href="/why-navain.html">Why Navain</a>
@@ -180,8 +234,9 @@
   </div>
 </footer>
 <script src="/assets/reveal.js?v=20261006" defer></script>
-<script src="/assets/ui.js?v=20261013-weekly-credit-review" defer></script>
-<script src="/assets/chat.js?v=20261013-weekly-credit-review" defer></script>
+<script src="/assets/ui.js?v=20261014-p0-features" defer></script>
+<script src="/assets/features.js?v=20261014-p0-features" defer></script>
+<script src="/assets/chat.js?v=20261014-booking-flow" defer></script>
 <script src="/assets/analytics.js?v=20261012-events" defer></script>
 </body>
 </html>

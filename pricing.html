@@ -35,7 +35,7 @@
 <link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=20261008-selfhosted">
-<link rel="stylesheet" href="/assets/base.css?v=20261012-conversion-upgrades">
+<link rel="stylesheet" href="/assets/base.css?v=20261014-p0-features">
 
 <script type="application/ld+json">
 {
@@ -99,7 +99,7 @@
             "name": "One-time setup",
             "price": "899",
             "priceCurrency": "USD",
-            "description": "One-time onboarding and voice/script setup."
+            "description": "One-time onboarding, greeting and script setup."
           },
           "businessFunction": "https://schema.org/Sell",
           "eligibleQuantity": {
@@ -136,7 +136,7 @@
             {
               "@type": "PropertyValue",
               "name": "Included",
-              "value": "Custom agent voice and script"
+              "value": "Custom greeting and call script"
             },
             {
               "@type": "PropertyValue",
@@ -162,7 +162,7 @@
             "name": "One-time setup",
             "price": "1399",
             "priceCurrency": "USD",
-            "description": "One-time onboarding and voice/script setup."
+            "description": "One-time onboarding, greeting and script setup."
           },
           "businessFunction": "https://schema.org/Sell",
           "eligibleQuantity": {
@@ -255,7 +255,7 @@
           <li><span class="mark">✓</span> Call summaries by email and SMS</li>
           <li><span class="mark">✓</span> Weekly owner summary of call volume and where Navain helped</li>
           <li><span class="mark">✓</span> 24/7 coverage</li>
-          <li><span class="mark">✓</span> Custom agent voice and script</li>
+          <li><span class="mark">✓</span> Custom greeting and call script</li>
           <li><span class="mark">✓</span> Live within 24 hours</li>
         </ul>
         <a class="btn btn-ghost" href="/contact.html?intent=pricing&amp;plan=essential#contact-form">Start with Essential</a>
@@ -299,6 +299,68 @@
   </div>
 </section>
 
+<section class="section reveal" id="plan-finder" aria-labelledby="plan-finder-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Not sure where to start?</p>
+      <h2 id="plan-finder-title">Find your starting plan in four questions.</h2>
+      <p class="sub">Answer honestly — this is a guide, not a quote. You can always start with “help me choose” instead.</p>
+    </div>
+    <div class="quiz-wrap">
+      <form id="quiz-form">
+        <fieldset class="quiz-q">
+          <legend>1 · About how many calls does your business get each week?</legend>
+          <label><input type="radio" name="q-calls" value="1-25"> 1–25</label>
+          <label><input type="radio" name="q-calls" value="26-75"> 26–75</label>
+          <label><input type="radio" name="q-calls" value="76-150"> 76–150</label>
+          <label><input type="radio" name="q-calls" value="150+"> More than 150</label>
+        </fieldset>
+        <fieldset class="quiz-q">
+          <legend>2 · How many locations need answering?</legend>
+          <label><input type="radio" name="q-locations" value="1"> Just one</label>
+          <label><input type="radio" name="q-locations" value="2-3"> 2–3</label>
+          <label><input type="radio" name="q-locations" value="4+"> 4 or more</label>
+        </fieldset>
+        <fieldset class="quiz-q">
+          <legend>3 · Do you want SMS follow-up after calls, or a CRM connection (HubSpot / Go High Level)?</legend>
+          <label><input type="radio" name="q-followup" value="yes"> Yes</label>
+          <label><input type="radio" name="q-followup" value="no"> No</label>
+          <label><input type="radio" name="q-followup" value="unsure"> Not sure yet</label>
+        </fieldset>
+        <fieldset class="quiz-q">
+          <legend>4 · Do you need a dedicated account manager, custom integrations, white-label, or an SLA?</legend>
+          <label><input type="radio" name="q-custom" value="yes"> Yes</label>
+          <label><input type="radio" name="q-custom" value="no"> No</label>
+        </fieldset>
+        <button class="btn btn-primary btn-lg" type="submit">Show my starting plan</button>
+      </form>
+      <div class="quiz-result" id="quiz-result" hidden aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="cost-view" aria-labelledby="cost-view-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Do the fixed-fee maths</p>
+      <h2 id="cost-view-title">What a plan totals over a year.</h2>
+      <p class="sub">Essential and Growth fees are fixed as listed, so the first-year maths is simple. No estimator, no invented discounts.</p>
+    </div>
+    <div class="quiz-wrap">
+      <div class="sim-field">
+        <label for="cost-plan">Choose a plan</label>
+        <select id="cost-plan">
+          <option value="essential">Essential — $699/mo + $899 setup</option>
+          <option value="growth">Growth — $999/mo + $1,399 setup</option>
+          <option value="enterprise">Enterprise — custom pricing</option>
+        </select>
+      </div>
+      <p class="cost-output" id="cost-output" aria-live="polite"></p>
+      <p class="sim-note">Want to see what each plan connects to? Read the <a href="/integrations.html">integrations directory</a> — what connects, and what data flows where, in writing.</p>
+    </div>
+  </div>
+</section>
+
 <section class="section section-alt reveal">
   <div class="container">
     <div class="section-head">
@@ -318,7 +380,7 @@
         <tbody>
         <tr><td>AI receptionist on your existing number</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>Answers within two rings, 24/7</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Custom agent voice and script</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Custom greeting and call script</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>Appointment booking with calendar sync</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>Call summaries by email and SMS</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>Weekly owner summary of call volume and where Navain helped</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
@@ -356,7 +418,7 @@
 <footer class="site-footer">
   <div class="container">
     <span class="footer-brand"><img class="footer-logo" src="/assets/logo.svg" alt="" width="28" height="28" aria-hidden="true">Navain AI</span>
-    <p class="footer-tag">The 24/7 AI phone receptionist for service businesses. Every call answered within two rings, in your own voice.</p>
+    <p class="footer-tag">The 24/7 AI phone receptionist for service businesses. Every call answered within two rings — booked, summarized, and sent to you.</p>
     <nav class="footer-links" aria-label="Footer">
       <a href="/how-it-works.html">How it works</a>
       <a href="/why-navain.html">Why Navain</a>
@@ -364,6 +426,7 @@
       <a href="/testimonials.html">Call examples</a>
       <a href="/about.html">About us</a>
       <a href="/pricing.html">Pricing</a>
+      <a href="/integrations.html">Integrations</a>
       <a href="/contact.html">Contact</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
@@ -379,8 +442,9 @@
   </div>
 </footer>
 <script src="/assets/reveal.js?v=20261006" defer></script>
-<script src="/assets/ui.js?v=20261013-weekly-credit-review" defer></script>
-<script src="/assets/chat.js?v=20261013-weekly-credit-review" defer></script>
+<script src="/assets/ui.js?v=20261014-p0-features" defer></script>
+<script src="/assets/features.js?v=20261014-p0-features" defer></script>
+<script src="/assets/chat.js?v=20261014-booking-flow" defer></script>
 <script src="/assets/analytics.js?v=20261012-events" defer></script>
 </body>
 </html>

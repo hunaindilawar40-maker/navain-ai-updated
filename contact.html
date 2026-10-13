@@ -35,7 +35,7 @@
 <link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=20261008-selfhosted">
-<link rel="stylesheet" href="/assets/base.css?v=20261012-conversion-upgrades">
+<link rel="stylesheet" href="/assets/base.css?v=20261014-p0-features">
 
 <script type="application/ld+json">
 {
@@ -91,6 +91,7 @@
       <a href="/testimonials.html">Call examples</a>
       <a href="/about.html">About us</a>
       <a href="/pricing.html">Pricing</a>
+      <a href="/integrations.html">Integrations</a>
       <a class="btn btn-primary btn-sm nav-cta" href="/contact.html">Talk to us</a>
     </nav>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
@@ -195,7 +196,7 @@
         <ul class="next-steps">
           <li>We reply from info@navainai.com, usually the same business day.</li>
           <li>A short call about your services, hours, and how you want calls handled.</li>
-          <li>Your agent is built with your voice and script, and goes live on your number within 24 hours of signup.</li>
+          <li>Your agent is built with your greeting and script, and goes live on your number within 24 hours of signup.</li>
         </ul>
       </div>
       <div class="contact-card">
@@ -206,11 +207,66 @@
   </div>
 </section>
 
+<section class="section section-alt reveal" aria-labelledby="callback-title">
+  <div class="container container-narrow">
+    <div class="section-head">
+      <p class="kicker">On a job? Don't call us.</p>
+      <h2 id="callback-title">Ask for a written reply.</h2>
+      <p class="sub">Tell us how you'd like us to write back — text or email — and what it's about. We'll reply in writing, usually the same business day. No sales call unless you ask for one.</p>
+    </div>
+    <div class="callback-wrap">
+      <form id="written-callback-form" action="https://formspree.io/f/xnjwnoyw" method="POST">
+        <div class="hp-field" aria-hidden="true">
+          <label for="cb-company">Company</label>
+          <input type="text" id="cb-company" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="_subject" value="Written-reply request from navainai.com">
+        <input type="hidden" name="request_type" value="written-reply">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="cb-name">Name</label>
+            <input type="text" id="cb-name" name="name" placeholder="Jane Doe" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="cb-reply">Where should we write back?</label>
+            <input type="text" id="cb-reply" name="reply_to" placeholder="Mobile number or email" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="cb-channel">Reply by</label>
+            <select id="cb-channel" name="reply_channel" required>
+              <option value="" selected disabled>Choose one</option>
+              <option value="text">Text message</option>
+              <option value="email">Email</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="cb-topic">What's it about?</label>
+            <select id="cb-topic" name="topic" required>
+              <option value="" selected disabled>Choose one</option>
+              <option value="pricing">Plans and pricing</option>
+              <option value="call-flow">How Navain could fit my call flow</option>
+              <option value="demo-written">A written walkthrough (no call)</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="form-field field-full">
+            <label for="cb-message">Anything we should know? (optional)</label>
+            <textarea id="cb-message" name="message" rows="3" placeholder="Your trade, roughly how many calls a week, and what you'd like answered in writing."></textarea>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg" type="submit">Request a written reply</button>
+        <p class="form-hint">We'll only use these details to reply in writing about Navain AI. If you'd rather talk live, book a demo above or call +1 (251) 203-1002.</p>
+        <p class="form-status" id="callback-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
 </main>
 <footer class="site-footer">
   <div class="container">
     <span class="footer-brand"><img class="footer-logo" src="/assets/logo.svg" alt="" width="28" height="28" aria-hidden="true">Navain AI</span>
-    <p class="footer-tag">The 24/7 AI phone receptionist for service businesses. Every call answered within two rings, in your own voice.</p>
+    <p class="footer-tag">The 24/7 AI phone receptionist for service businesses. Every call answered within two rings — booked, summarized, and sent to you.</p>
     <nav class="footer-links" aria-label="Footer">
       <a href="/how-it-works.html">How it works</a>
       <a href="/why-navain.html">Why Navain</a>
@@ -233,8 +289,9 @@
   </div>
 </footer>
 <script src="/assets/reveal.js?v=20261006" defer></script>
-<script src="/assets/ui.js?v=20261013-weekly-credit-review" defer></script>
-<script src="/assets/chat.js?v=20261013-weekly-credit-review" defer></script>
+<script src="/assets/ui.js?v=20261014-p0-features" defer></script>
+<script src="/assets/features.js?v=20261014-p0-features" defer></script>
+<script src="/assets/chat.js?v=20261014-booking-flow" defer></script>
 <script src="/assets/analytics.js?v=20261012-events" defer></script>
 </body>
 </html>

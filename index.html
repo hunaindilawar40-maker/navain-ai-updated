@@ -35,7 +35,7 @@
 <link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=20261008-selfhosted">
-<link rel="stylesheet" href="/assets/base.css?v=20261012-conversion-upgrades">
+<link rel="stylesheet" href="/assets/base.css?v=20261014-p0-features">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -57,7 +57,7 @@
       "image": {
         "@id": "https://navainai.com/#logo"
       },
-      "description": "Navain AI is a 24/7 AI phone receptionist for service businesses. It answers every call in the business's own voice within two rings, books appointments from a live calendar, and sends the owner a text and email summary after every call.",
+      "description": "Navain AI is a 24/7 AI phone receptionist for service businesses. It answers every call within two rings using the business's approved greeting and script, books appointments from a live calendar, and sends the owner a text and email summary after every call.",
       "email": "info@navainai.com",
       "telephone": "+1-251-203-1002",
       "sameAs": [
@@ -115,12 +115,12 @@
         "@type": "Place",
         "name": "North America"
       },
-      "description": "A 24/7 AI phone receptionist that answers every call within two rings in the business's own voice, books appointments from a live calendar, and sends the owner a text and email summary after every call plus an end-of-week summary of call volume and where Navain helped. No hardware, no contracts, live on the customer's existing number within 24 hours.",
+      "description": "A 24/7 AI phone receptionist that answers every call within two rings using the business's approved greeting and script, books appointments from a live calendar, and sends the owner a text and email summary after every call plus an end-of-week summary of call volume and where Navain helped. No hardware, no contracts, live on the customer's existing number within 24 hours.",
       "offers": [
         {
           "@type": "Offer",
           "name": "Essential plan",
-          "description": "AI receptionist on your existing number, appointment booking with calendar sync, call summaries by email and SMS, weekly owner summary of call volume and where Navain helped, 24/7 coverage, custom agent voice and script, live within 24 hours. $699 per month plus $899 one-time setup. Fees shown for this plan are fixed. Call credits are included; confirm the allowance for expected weekly call volume.",
+          "description": "AI receptionist on your existing number, appointment booking with calendar sync, call summaries by email and SMS, weekly owner summary of call volume and where Navain helped, 24/7 coverage, custom greeting and call script, live within 24 hours. $699 per month plus $899 one-time setup. Fees shown for this plan are fixed. Call credits are included; confirm the allowance for expected weekly call volume.",
           "price": "699.00",
           "priceCurrency": "USD",
           "url": "https://navainai.com/pricing.html"
@@ -144,7 +144,7 @@
           "name": "How fast can Navain AI go live?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most businesses are live within 24 hours of signing up. We build your agent's voice and script, connect your calendar, and route your existing phone number — no new number, no hardware, and nothing to install."
+            "text": "Most businesses are live within 24 hours of signing up. We prepare your greeting and call script, connect your calendar, and route your existing phone number — no new number, no hardware, and nothing to install."
           }
         },
         {
@@ -160,7 +160,7 @@
           "name": "What does the AI receptionist actually do during a call?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It answers within two rings in your business's own voice, follows your custom script, answers questions about your services, and books appointments directly from your live calendar. When a caller needs a person or a booking isn't the right outcome, it follows your configured handoff rules or takes a message for follow-up. After every call you get a summary by text and email."
+            "text": "It answers within two rings, uses your approved greeting and follows your custom script, answers questions about your services, and books appointments directly from your live calendar. When a caller needs a person or a booking isn't the right outcome, it follows your configured handoff rules or takes a message for follow-up. After every call you get a summary by text and email."
           }
         },
         {
@@ -168,7 +168,7 @@
           "name": "Will callers know they're talking to an AI?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Navain is an AI receptionist, not a human employee. It uses a natural voice with your chosen greeting and script. During setup, you can shape how it introduces itself and when it hands a caller to a person."
+            "text": "Navain is an AI receptionist, not a human employee. It is clearly an AI assistant. It uses your chosen greeting and script, and never presents itself as a human employee. During setup, you can shape how it introduces itself and when it hands a caller to a person."
           }
         },
         {
@@ -216,6 +216,7 @@
       <a href="/testimonials.html">Call examples</a>
       <a href="/about.html">About us</a>
       <a href="/pricing.html">Pricing</a>
+      <a href="/integrations.html">Integrations</a>
       <a class="btn btn-primary btn-sm nav-cta" href="/contact.html">Talk to us</a>
     </nav>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
@@ -230,7 +231,7 @@
     <div class="hero-copy">
       <p class="eyebrow-pill"><span class="pulse-dot" aria-hidden="true"></span>For the calls you can't pick up yourself</p>
       <h1 id="home-title">Every caller deserves a hello.<br><span class="grad">Even after hours.</span></h1>
-      <p class="lede">You have customers to look after and a business to run. Navain is your AI receptionist for the moments you're on a job, with another customer, or off the clock. It answers in your business's voice, books from your live calendar, and follows your handoff plan when a caller needs a person.</p>
+      <p class="lede">You have customers to look after and a business to run. Navain is your AI receptionist for the moments you're on a job, with another customer, or off the clock. It uses your approved greeting, books from your live calendar, and follows your handoff plan when a caller needs a person.</p>
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" href="#calculator">Estimate my missed calls <span aria-hidden="true">↓</span></a>
         <a class="btn btn-ghost btn-lg" href="https://calendly.com/navainai" target="_blank" rel="noopener noreferrer" data-analytics-event="Calendly Booking Click">Book a demo</a>
@@ -287,6 +288,20 @@
             <input type="range" id="calc-calls" name="missed_calls" min="0" max="100" step="1" value="12">
           </div>
           <div class="calc-field">
+            <label for="calc-industry">Start from an example trade (optional)</label>
+            <select id="calc-industry" name="industry_preset" aria-describedby="calc-preset-note">
+              <option value="">Choose an example — or just type your own below</option>
+              <option value="350">Plumbing — $350 example job value</option>
+              <option value="400">HVAC — $400 example job value</option>
+              <option value="500">Roofing — $500 example job value</option>
+              <option value="250">Dental — $250 example visit value</option>
+              <option value="80">Salon — $80 example appointment value</option>
+              <option value="60">Restaurant — $60 example booking value</option>
+              <option value="300">Law office — $300 example consultation value</option>
+            </select>
+            <p class="calc-reassurance" id="calc-preset-note">Example starting values only — edit the job value below to match your business. These are not industry statistics.</p>
+          </div>
+          <div class="calc-field">
             <label for="calc-value">Average value of one booked job</label>
             <div class="currency-input">
               <span aria-hidden="true">$</span>
@@ -307,6 +322,12 @@
         <p class="calc-note" id="calc-note">About 52 calls a month, at your weekly pace.</p>
         <div class="calc-result-divider"></div>
         <p class="calc-result-trust"><span aria-hidden="true">✓</span> Just an estimate based on the numbers you entered.</p>
+        <p class="calc-sentence" id="calc-sentence" aria-live="polite"></p>
+        <div class="calc-actions">
+          <button class="btn btn-ghost btn-sm" type="button" id="calc-copy">Copy my result</button>
+          <a class="btn btn-primary btn-sm" id="calc-contact" href="/contact.html?intent=calculator&amp;plan=help-me-choose#contact-form">Send my numbers to Navain</a>
+        </div>
+        <p class="calc-copy-status" id="calc-copy-status" role="status" aria-live="polite"></p>
         <a class="calc-link" href="/how-it-works.html">See how Navain answers every call <span aria-hidden="true">→</span></a>
       </aside>
     </div>
@@ -360,9 +381,9 @@
         <p>Your customer calls the number they already know. Navain picks up within two rings—no hold music, no keypad maze, day or night.</p>
       </div>
       <div class="step-card reveal">
-        <span class="step-num">02 · Listen</span>
+        <span class="step-num">02 · Understand</span>
         <h3>Understands what they need</h3>
-        <p>Navain greets callers in your chosen voice and knows your services, hours, and service area—so the conversation feels like your business.</p>
+        <p>Navain greets callers with your approved greeting and knows your services, hours, and service area—so the conversation feels like your business.</p>
       </div>
       <div class="step-card reveal">
         <span class="step-num">03 · Help</span>
@@ -386,9 +407,9 @@
     </div>
     <div class="grid grid-3">
       <div class="benefit-card reveal">
-        <span class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
-        <h3>Keep the way you sound</h3>
-        <p>Choose a voice and greeting that fit your business. Callers get a familiar, thoughtful welcome—not a generic recording.</p>
+        <span class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H9l-4.5 3.6A1 1 0 0 1 3 18.6l.2-2.6H7a3 3 0 0 1-3-3V6Z"/><path d="M8 8h8M8 12h5"/></svg></span>
+        <h3>Keep your welcome familiar</h3>
+        <p>Choose greeting wording that fits your business. Callers get a familiar, thoughtful welcome — not a generic, one-size-fits-all script.</p>
       </div>
       <div class="benefit-card reveal">
         <span class="benefit-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span>
@@ -429,13 +450,13 @@
     <div class="chip-grid">
       <a class="chip" href="/hvac.html">HVAC teams</a>
       <a class="chip" href="/plumbing.html">Plumbing teams</a>
-      <a class="chip" href="/industries.html">Dental &amp; Medical</a>
+      <a class="chip" href="/dental.html">Dental &amp; Medical</a>
       <a class="chip" href="/salons.html">Salons &amp; Spas</a>
-      <a class="chip" href="/industries.html">Law Offices</a>
+      <a class="chip" href="/law-offices.html">Law Offices</a>
       <a class="chip" href="/industries.html">Real Estate</a>
       <a class="chip" href="/industries.html">Auto Repair</a>
-      <a class="chip" href="/industries.html">Restaurants &amp; Cafes</a>
-      <a class="chip" href="/industries.html">Roofing</a>
+      <a class="chip" href="/restaurants.html">Restaurants &amp; Cafes</a>
+      <a class="chip" href="/roofing.html">Roofing</a>
       <a class="chip" href="/industries.html">Accounting &amp; Bookkeeping</a>
       <a class="chip" href="/industries.html">Veterinary Clinics</a>
       <a class="chip" href="/industries.html">Gyms &amp; Fitness Studios</a>
@@ -486,6 +507,7 @@
       </article>
     </div>
     <div class="cta-actions">
+      <a class="btn btn-primary" href="/testimonials.html#simulator">Read a sample call, line by line</a>
       <a class="btn btn-ghost" href="/testimonials.html">View all sample call stories</a>
     </div>
   </div>
@@ -539,7 +561,7 @@
           <li><span class="mark">✓</span> Call summaries by email and SMS</li>
           <li><span class="mark">✓</span> Weekly owner summary of call volume and where Navain helped</li>
           <li><span class="mark">✓</span> 24/7 coverage</li>
-          <li><span class="mark">✓</span> Custom agent voice and script</li>
+          <li><span class="mark">✓</span> Custom greeting and call script</li>
           <li><span class="mark">✓</span> Live within 24 hours</li>
         </ul>
         <a class="btn btn-ghost" href="/contact.html?intent=pricing&amp;plan=essential#contact-form">Start with Essential</a>
@@ -593,7 +615,7 @@
     <div class="faq-list">
 <details class="faq">
 <summary>How fast can Navain AI go live?</summary>
-<div class="faq-a"><p>Most businesses are live within 24 hours of signing up. We build your agent's voice and script, connect your calendar, and route your existing phone number — no new number, no hardware, and nothing to install.</p></div>
+<div class="faq-a"><p>Most businesses are live within 24 hours of signing up. We prepare your greeting and call script, connect your calendar, and route your existing phone number — no new number, no hardware, and nothing to install.</p></div>
 </details>
 <details class="faq">
 <summary>Do I need special hardware or a new phone number?</summary>
@@ -601,11 +623,11 @@
 </details>
 <details class="faq">
 <summary>What does the AI receptionist actually do during a call?</summary>
-<div class="faq-a"><p>It answers within two rings in your business's own voice, follows your custom script, answers questions about your services, and books appointments directly from your live calendar. When a caller needs a person or a booking isn't the right outcome, it follows your configured handoff rules or takes a message for follow-up. After every call you get a summary by text and email.</p></div>
+<div class="faq-a"><p>It answers within two rings, uses your approved greeting and follows your custom script, answers questions about your services, and books appointments directly from your live calendar. When a caller needs a person or a booking isn't the right outcome, it follows your configured handoff rules or takes a message for follow-up. After every call you get a summary by text and email.</p></div>
 </details>
 <details class="faq">
 <summary>Will callers know they're talking to an AI?</summary>
-<div class="faq-a"><p>Navain is an AI receptionist, not a human employee. It uses a natural voice with your chosen greeting and script. During setup, you can shape how it introduces itself and when it hands a caller to a person.</p></div>
+<div class="faq-a"><p>Navain is an AI receptionist, not a human employee. It is clearly an AI assistant. It uses your chosen greeting and script, and never presents itself as a human employee. During setup, you can shape how it introduces itself and when it hands a caller to a person.</p></div>
 </details>
 <details class="faq">
 <summary>What happens when the AI can't answer something?</summary>
@@ -662,7 +684,7 @@
 <footer class="site-footer">
   <div class="container">
     <span class="footer-brand"><img class="footer-logo" src="/assets/logo.svg" alt="" width="28" height="28" aria-hidden="true">Navain AI</span>
-    <p class="footer-tag">The 24/7 AI phone receptionist for service businesses. Every call answered within two rings, in your own voice.</p>
+    <p class="footer-tag">The 24/7 AI phone receptionist for service businesses. Every call answered within two rings — booked, summarized, and sent to you.</p>
     <nav class="footer-links" aria-label="Footer">
       <a href="/how-it-works.html">How it works</a>
       <a href="/why-navain.html">Why Navain</a>
@@ -685,8 +707,9 @@
   </div>
 </footer>
 <script src="/assets/reveal.js?v=20261006" defer></script>
-<script src="/assets/ui.js?v=20261013-weekly-credit-review" defer></script>
-<script src="/assets/chat.js?v=20261013-weekly-credit-review" defer></script>
+<script src="/assets/ui.js?v=20261014-p0-features" defer></script>
+<script src="/assets/features.js?v=20261014-p0-features" defer></script>
+<script src="/assets/chat.js?v=20261014-booking-flow" defer></script>
 <script src="/assets/analytics.js?v=20261012-events" defer></script>
 </body>
 </html>

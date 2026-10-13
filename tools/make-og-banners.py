@@ -66,6 +66,16 @@ PAGES = {
                 "What we collect, why, and your choices."),
     "terms": ("Terms", "Terms of service",
               "The rules that govern the service."),
+    "roofing": ("Roofing", "Calls answered on site",
+                "Inspection requests, captured."),
+    "dental": ("Dental", "A calmer practice phone",
+               "Scheduling, handled politely."),
+    "law-offices": ("Law offices", "Intake calls captured",
+                    "Intake details, routed for review."),
+    "integrations": ("Integrations", "What Navain connects to",
+                     "Calendar, summaries, and CRM — in writing."),
+    "restaurants": ("Restaurants", "Answered during the rush",
+                    "Hours and reservations, handled."),
 }
 
 
