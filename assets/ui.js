@@ -70,7 +70,7 @@
       var params = new URLSearchParams(window.location.search);
       var intent = params.get("intent");
       var plan = params.get("plan");
-      var validPlans = { essential: true, growth: true, enterprise: true };
+      var validPlans = { essential: true, growth: true, enterprise: true, "help-me-choose": true };
       var prefills = {
         demo: { choice: "demo", message: "I'd like to request a 15-minute product demo." },
         pricing: { choice: "pricing", message: "Please confirm the included credit allowance for my expected weekly call volume and explain the first-week usage review. I understand the listed plan fee is fixed." }
@@ -79,6 +79,16 @@
       if (prefill) {
         if (interest) interest.value = prefill.choice;
         if (message && !message.value) message.value = prefill.message;
+      }
+      // Calculator v2 / script builder: carry the visitor's own text into
+      // the message. Plain text only, length-capped; assigned via .value
+      // (never innerHTML).
+      if ((intent === "calculator" || intent === "script") && message && !message.value) {
+        var calcNote = params.get("note");
+        message.value = calcNote ? calcNote.slice(0, 600) :
+          intent === "script"
+            ? "I'd like Navain to review a draft greeting/script for my business."
+            : "I'd like to discuss my missed-call estimate from the Navain calculator.";
       }
       if (selectedPlan && Object.prototype.hasOwnProperty.call(validPlans, plan)) {
         selectedPlan.value = plan;
@@ -134,30 +144,79 @@
     });
   }
 
-  /* ---------- Revenue calculator (index.html) ---------- */
+  /* ---------- Revenue calculator v2 (index.html) ---------- */
   var calc = document.getElementById("calc");
   if (calc) {
     var cCalls = document.getElementById("calc-calls");
     var cValue = document.getElementById("calc-value");
     var cRate = document.getElementById("calc-rate");
+    var cIndustry = document.getElementById("calc-industry");
     var oCalls = document.getElementById("calc-calls-out");
     var oRate = document.getElementById("calc-rate-out");
     var figure = document.getElementById("calc-figure");
     var note = document.getElementById("calc-note");
+    var sentence = document.getElementById("calc-sentence");
+    var copyBtn = document.getElementById("calc-copy");
+    var copyStatus = document.getElementById("calc-copy-status");
+    var contactLink = document.getElementById("calc-contact");
 
     var fmt = function (n) {
       return "$" + Math.round(n).toLocaleString("en-US");
     };
+    var currentSentence = "";
     var recalc = function () {
       var calls = Math.max(0, parseFloat(cCalls.value) || 0);
       var value = Math.max(0, parseFloat(cValue.value) || 0);
       var rate = Math.max(0, Math.min(100, parseFloat(cRate.value) || 0)) / 100;
-      var monthly = calls * 4.33 * rate * value;
+      var monthlyCalls = calls * 4.33;
+      var monthly = monthlyCalls * rate * value;
       oCalls.textContent = Math.round(calls).toLocaleString("en-US");
       oRate.textContent = Math.round(rate * 100) + "%";
       figure.textContent = fmt(monthly) + " / mo";
-      note.textContent = "About " + Math.round(calls * 4.33) + " calls a month, at your weekly pace.";
+      note.textContent = "About " + Math.round(monthlyCalls) + " calls a month, at your weekly pace.";
+      currentSentence =
+        "My missed-call estimate (from the Navain calculator, using my own numbers): about " +
+        Math.round(calls) + " missed calls a week (roughly " + Math.round(monthlyCalls) + " a month), " +
+        "average booked job " + fmt(value) + ", and about " + Math.round(rate * 100) +
+        "% of callers might book — about " + fmt(monthly) + " a month in work I might otherwise miss. " +
+        "This is my rough estimate, not a promise. Please confirm the included credit allowance for this weekly volume.";
+      if (sentence) {
+        sentence.textContent =
+          "In plain English: if about " + Math.round(rate * 100) + "% of your roughly " +
+          Math.round(monthlyCalls) + " monthly missed calls booked at " + fmt(value) +
+          " each, that's about " + fmt(monthly) + " a month in work you might otherwise miss. " +
+          "It's an estimate from your numbers — not a promise of revenue.";
+      }
+      if (contactLink) {
+        contactLink.href = "/contact.html?intent=calculator&plan=help-me-choose&note=" +
+          encodeURIComponent(currentSentence) + "#contact-form";
+      }
+      if (copyStatus) copyStatus.textContent = "";
     };
+    // Industry presets are editable starting points, not industry statistics.
+    if (cIndustry && cValue) {
+      cIndustry.addEventListener("change", function () {
+        if (cIndustry.value) {
+          cValue.value = cIndustry.value;
+          recalc();
+          track("Calculator Preset Used");
+        }
+      });
+      cValue.addEventListener("input", function () {
+        if (cIndustry.value && cIndustry.value !== cValue.value) cIndustry.value = "";
+      });
+    }
+    if (copyBtn) {
+      copyBtn.addEventListener("click", function () {
+        function done(ok) {
+          if (copyStatus) copyStatus.textContent = ok ? "Copied — paste it anywhere, or use “Send my numbers to Navain” below." : "Copy didn't work here — the “Send my numbers” button below carries the same text.";
+          track("Calculator Copied");
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(currentSentence).then(function () { done(true); }, function () { done(false); });
+        } else { done(false); }
+      });
+    }
     var calculatorTracked = false;
     [cCalls, cValue, cRate].forEach(function (el) {
       el.addEventListener("input", function () {

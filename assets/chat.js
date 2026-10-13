@@ -6,12 +6,12 @@
   var EMAIL = "info@navainai.com";
   var PHONE = "+1 (251) 203-1002";
   var GREETING = "Hi, I'm Stacy, Navain's virtual assistant. I can answer questions about how the receptionist works, what it costs, or whether it might suit your business. What would be helpful?";
-  var QUICK = ["How does it work?", "What is the pricing?", "How fast is setup?", "I want to get started"];
+  var QUICK = ["How does it work?", "What is the pricing?", "How fast is setup?", "Book a demo", "I want to get started"];
 
   var SYSTEM_PROMPT =
     "You are Stacy, Navain AI's friendly virtual assistant. Be warm, clear and conversational; " +
-    "never claim to be human. Navain AI is a 24/7 AI phone receptionist for service businesses. " +
-    "It answers every call in the business's own voice within two rings, books appointments " +
+    "never claim to be human. Never claim Navain clones, copies, or uses the real voice of the owner, staff, or any real person, and never offer to play or create a recording in a real person's voice. Navain AI is a 24/7 AI phone receptionist for service businesses. " +
+    "It answers every call within two rings using the business's approved greeting and script, books appointments " +
     "from a live calendar, and sends the owner a text and email summary after every call. " +
     "At each week's end, the owner also receives a summary of call volume and activity " +
     "showing where Navain helped. No hardware, no contracts, live on the customer's existing " +
@@ -24,8 +24,8 @@
     "tiers, prices, discounts, statistics, customer counts or performance numbers:\n" +
     "- Essential: $699/month + $899 one-time setup. AI receptionist on your existing number, " +
     "appointment booking with calendar sync, call summaries by email and SMS, a weekly owner " +
-    "summary of call volume and where Navain helped, 24/7 coverage, custom agent voice and " +
-    "script, live within 24 hours.\n" +
+    "summary of call volume and where Navain helped, 24/7 coverage, custom greeting and " +
+    "call script, live within 24 hours.\n" +
     "- Growth: $999/month + $1,399 one-time setup. Everything in Essential plus SMS follow-up " +
     "after every call, CRM integration with HubSpot and Go High Level, multi-location support, " +
     "priority onboarding, monthly performance report.\n" +
@@ -41,20 +41,22 @@
     "receive an end-of-week summary of call volume and activity showing where Navain helped.\n\n" +
     "When a visitor is interested in getting started, collect these details one at a time: their " +
     "name, business name, phone number, estimated weekly call volume, and the plan they're " +
-    "considering (Essential, Growth, Enterprise, or help me choose). Then share the contact page " +
+    "considering (Essential, Growth, Enterprise, or help me choose). The chat's “Book a demo” button " +
+    "collects name, business, written-reply contact and weekly volume, then lets the visitor pick a time " +
+    "on Calendly or send the request in writing; it does not check a live calendar or hold a slot, and " +
+    "you must never claim it does. Otherwise share the contact page " +
     "at https://navainai.com/contact.html. For a demo booking, share the direct link " +
     "https://calendly.com/navainai. They can also email " + EMAIL + ".\n" +
     "Contact info: " + EMAIL + " or " + PHONE + ".\n" +
     "Keep replies warm, concrete and under 90 words. Never invent plans, tiers or prices.";
 
   /* ---------- config: which features are live? ---------- */
-  var chatReady = null, ttsReady = false;
+  var chatReady = null;
   window.NAVAIN_CHAT_READY = null;
   fetch("/api/config")
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (c) {
       chatReady = !!(c && c.chat);
-      ttsReady = !!(c && c.tts);
       window.NAVAIN_CHAT_READY = chatReady;
     })
     .catch(function () { window.NAVAIN_CHAT_READY = false; });
@@ -108,28 +110,8 @@
   }
   function scrollDown() { msgs.scrollTop = msgs.scrollHeight; }
 
-  function addTTS(bubble, text) {
-    var b = el("button", "tts-btn", "🔊 Listen");
-    b.type = "button";
-    b.addEventListener("click", function () {
-      b.disabled = true;
-      b.textContent = "🔊 Loading…";
-      fetch("/api/speak", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: text })
-      })
-        .then(function (r) { if (!r.ok) throw new Error("tts " + r.status); return r.blob(); })
-        .then(function (blob) { new Audio(URL.createObjectURL(blob)).play(); })
-        .catch(function () { b.textContent = "🔊 Unavailable"; })
-        .then(function () { b.disabled = false; });
-    });
-    bubble.appendChild(b);
-  }
-
   function botMsg(text) {
     var b = el("div", "chat-bubble bot", text);
-    if (ttsReady && text.length < 600) addTTS(b, text);
     msgs.appendChild(b);
     scrollDown();
   }
@@ -159,10 +141,104 @@
     quickRow.appendChild(b);
   });
 
+  /* ---------- booking-request flow (deterministic, not AI guesswork) ------
+     Collects four details, then offers: pick a time on Calendly, or send the
+     request in writing via the same Formspree endpoint as the contact form.
+     This does NOT check a live calendar or hold a slot — it must never be
+     described that way. Picking a time happens on Calendly itself. */
+  var BOOKING_STEPS = [
+    { key: "name", prompt: "Great — let's sort that out in writing. First, what's your name? (Type “cancel” anytime to stop.)" },
+    { key: "business", prompt: "Thanks. What's your business name?" },
+    { key: "reply", prompt: "Where should we reply in writing — an email address or mobile number? We'll only use it to reply about Navain." },
+    { key: "volume", prompt: "Last one: roughly how many calls does your business get each week? A guess is fine, or type “skip”." }
+  ];
+  var booking = null;
+
+  function userMsg(text) {
+    msgs.appendChild(el("div", "chat-bubble user", text));
+    scrollDown();
+  }
+  function startBooking(firstText) {
+    booking = { step: 0, data: {} };
+    if (firstText) userMsg(firstText);
+    botMsg(BOOKING_STEPS[0].prompt);
+    input.focus();
+  }
+  function bookingSummary() {
+    var d = booking.data;
+    booking = null;
+    botMsg(
+      "Here's what I have: " + d.name + " from " + d.business +
+      ". We'll reply in writing to " + d.reply +
+      (d.volume ? ", about " + d.volume + " calls a week" : "") +
+      ". Choose how you'd like to continue — pick a time on Calendly, or send this as a written request and we'll reply. Nothing is booked until you pick a time or we confirm in writing."
+    );
+    var row = el("div", "chat-actions");
+    var cal = el("a", "chat-action", "Pick a time on Calendly");
+    cal.href = "https://calendly.com/navainai";
+    cal.target = "_blank";
+    cal.rel = "noopener noreferrer";
+    row.appendChild(cal);
+    var sendBtn = el("button", "chat-action", "Send my request in writing");
+    sendBtn.type = "button";
+    sendBtn.addEventListener("click", function () {
+      sendBtn.disabled = true;
+      sendBtn.textContent = "Sending…";
+      var fd = new FormData();
+      fd.append("_subject", "Demo / booking request from Stacy chat (navainai.com)");
+      fd.append("request_type", "chat-booking-request");
+      fd.append("name", d.name);
+      fd.append("business_name", d.business);
+      fd.append("reply_to", d.reply);
+      fd.append("weekly_call_volume", d.volume || "(not given)");
+      fd.append("message", "I'd like to book a Navain AI demo / discuss getting started. Please reply in writing.");
+      fetch("https://formspree.io/f/xnjwnoyw", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: fd
+      })
+        .then(function (r) {
+          if (!r.ok) throw new Error("Formspree " + r.status);
+          botMsg("Sent — thank you. We'll reply in writing from " + EMAIL + ", usually the same business day. If you'd like a specific time sooner, the Calendly button above is fastest.");
+        })
+        .catch(function () {
+          botMsg("That didn't go through. You can email us at " + EMAIL + " or call " + PHONE + " and we'll get you booked in.");
+        })
+        .then(function () { sendBtn.disabled = false; sendBtn.textContent = "Send my request in writing"; });
+    });
+    row.appendChild(sendBtn);
+    msgs.appendChild(row);
+    scrollDown();
+  }
+  function handleBooking(text) {
+    userMsg(text);
+    input.value = "";
+    if (/^(cancel|stop|never ?mind)$/i.test(text)) {
+      booking = null;
+      botMsg("No problem — that's cancelled. Nothing was sent. What else can I help with?");
+      return;
+    }
+    var step = BOOKING_STEPS[booking.step];
+    if (!(step.key === "volume" && /^skip$/i.test(text))) {
+      booking.data[step.key] = text.slice(0, 200);
+    }
+    booking.step += 1;
+    if (booking.step < BOOKING_STEPS.length) {
+      botMsg(BOOKING_STEPS[booking.step].prompt);
+    } else {
+      bookingSummary();
+    }
+  }
+
   /* ---------- send / receive ---------- */
   function send(text) {
     text = (text || "").trim();
     if (!text || busy) return;
+    if (booking) { handleBooking(text); return; }
+    if (/^(book a demo|i want to get started|get started|book me in)\.?$/i.test(text)) {
+      startBooking(text);
+      return;
+    }
     msgs.appendChild(el("div", "chat-bubble user", text));
     history.push({ role: "user", content: text });
     scrollDown();

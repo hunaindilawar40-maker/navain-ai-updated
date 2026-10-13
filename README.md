@@ -8,11 +8,18 @@ CI health check. No build step, no bundled libraries — plain HTML, one shared
 stylesheet (`assets/base.css`), and a few tiny hand-written scripts.
 
 **Navain AI** is a 24/7 AI phone receptionist for service businesses. It answers
-every call in the business's own voice within two rings, books appointments from
+every call within two rings using the business's approved greeting and script, books appointments from
 a live calendar, and sends the owner a text/email summary. No hardware, no
 contracts, live on the customer's existing number within 24 hours.
 A [Pontis Construction Inc.](https://www.pontisconstruction.com/) company ·
 <https://navainai.com>
+
+**No real-voice features on this site:** Stacy is text-only (no “Listen” /
+text-to-speech playback), there is no voice cloning and no audio demo in a
+real person's voice, and the copy does not claim Navain uses or copies the
+owner's (or anyone's) real voice — only the greeting and script the business
+approves. Future ideas are tracked, text-first, in
+[`FEATURE-ROADMAP.md`](FEATURE-ROADMAP.md).
 
 ## Pages
 
@@ -23,6 +30,7 @@ A [Pontis Construction Inc.](https://www.pontisconstruction.com/) company ·
 | `why-navain.html` | Positioning + honest comparison table |
 | `industries.html` | All served industries, with focused pages linked for key workflows |
 | `plumbing.html` / `hvac.html` / `salons.html` | Industry-specific call workflows and FAQs |
+| `roofing.html` / `dental.html` / `law-offices.html` / `restaurants.html` | Industry-specific call workflows and FAQs (added 2026-10-14) |
 | `testimonials.html` | Call examples: clearly labeled hypothetical workflows, not endorsements |
 | `about.html` | Pontis Construction origin story |
 | `pricing.html` | Fixed Essential/Growth fees, custom Enterprise pricing, full comparison and weekly-volume credit review |
@@ -44,6 +52,8 @@ assets/
   reveal.js     IntersectionObserver fade-ins (<2KB, reduced-motion + no-JS safe)
   ui.js         nav drawer, cookie banner, contact form fetch, revenue calculator
   chat.js       the "Stacy" chat widget
+  features.js   P0 features: written call simulator, plan-finder quiz, FAQ
+                search, 24-hour setup checklist, written-callback form
   analytics.js  privacy-friendly, first-party-proxied analytics (see below)
   icon-512.png  the brand mark, 512x512 — Search, PWA and JSON-LD `logo`
   favicon-48/96/192.png, favicon.png (legacy 64px), apple-touch-icon.png
@@ -58,15 +68,14 @@ tools/
   make-og-banners.py  regenerates the per-page og-<page>.png banners
   check-site.py    zero-dependency static health check (run in CI and locally)
 api/
-  config.js     GET  → { chat, tts } — which env vars exist
+  config.js     GET  → { chat } — which env vars exist (booleans only)
   chat.js       POST → Groq chat completion → { text }
-  speak.js      POST → optional text-to-speech (audio/wav)
 ```
 
 ## The chatbot (API key never reaches the browser)
 
 1. On load the widget calls `GET /api/config`, which reports
-   `{ chat: boolean, tts: boolean }` based on which environment variables exist.
+   `{ chat: boolean }` based on whether the chat environment variable exists.
 2. On send it POSTs `{ system, messages, max_tokens }` to `/api/chat`.
 3. `/api/chat` reads `GROQ_API_KEY` from **Vercel's environment variables** and
    proxies the request to Groq. On any failure it returns `{ error }` with an
@@ -76,13 +85,30 @@ api/
 If the key is missing, the site still works — Stacy simply apologizes and points
 visitors to **info@navainai.com**.
 
+## Interactive features (P0, text-only)
+
+`assets/features.js` powers: the **written call simulator** on
+`testimonials.html#simulator` (fictional typed transcripts + owner summary —
+no audio, no recording, no cloned voice), the **plan-finder quiz** on
+`pricing.html#plan-finder`, **FAQ search** on every page with an FAQ list,
+the **24-hour setup checklist** on `how-it-works.html#setup-checklist`
+(localStorage only), and the **written-reply callback form** on
+`contact.html`. Calculator v2 (industry presets, plain-English result,
+copy-my-result and a contact link carrying the visitor's own numbers) lives
+in `assets/ui.js`. Batch 2 adds: the **branching "you be the caller"
+simulator** on `testimonials.html#branching-simulator`, the **greeting &
+script builder** (wording only) and **owner-inbox concept demo** (made-up
+data) on `how-it-works.html`, the **first-year cost view** on
+`pricing.html#cost-view`, and the **integrations directory** at
+`integrations.html`. See `FEATURE-ROADMAP.md` for the no-real-voice ship-gate.
+
 ## Deploying (Vercel)
 
 1. Push this repo to GitHub and import it at [vercel.com/new](https://vercel.com/new).
    Vercel detects the `api/` directory automatically — no framework preset needed.
 2. **Vercel → Project → Settings → Environment Variables** → add:
    - `GROQ_API_KEY` — your key from [console.groq.com](https://console.groq.com)
-   - Optional: `GROQ_MODEL` (default `llama-3.1-8b-instant`), `TTS_VOICE`
+   - Optional: `GROQ_MODEL` (default `llama-3.1-8b-instant`)
 3. **Redeploy.** The serverless functions read env vars at runtime; without a
    redeploy the chatbot stays in its fallback mode.
 
@@ -172,7 +198,7 @@ and regenerate with the files in `assets/fonts/`.
 - `Content-Security-Policy` — enforceable because the site has **zero** inline
   `<script>`, **zero** inline `<style>` and **zero** `style=` attributes
   (verified by `tools/check-site.py`). Every allowlisted origin is one the site
-  genuinely calls. `media-src blob:` covers Stacy's TTS playback; `form-action`
+  genuinely calls. `media-src 'self'` allows no voice/TTS playback (there is none); `form-action`
   covers Formspree and the DuckDuckGo search on the 404 page; Groq is **not**
   listed because `api/*.js` call it server-side.
 - `X-Frame-Options: DENY` and `Strict-Transport-Security`.
