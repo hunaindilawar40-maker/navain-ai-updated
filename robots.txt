@@ -1,18 +1,169 @@
 # Navain AI — https://navainai.com
+# Every public page is open to every search engine, AI crawler, and
+# link-preview bot. Only the /api/ endpoints are kept out of crawls.
+# Each named group below repeats the same rules so no crawler can fall
+# through to a stricter default. Keep the Sitemap line at the bottom.
+
 User-agent: *
 Allow: /
 Disallow: /api/
 
+# --- Google ---------------------------------------------------------------
 # Icons must stay crawlable: Google fetches the favicon with Googlebot-Image
 # and will not show one it is blocked from.
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
 
+User-agent: Googlebot-News
+Allow: /
+Disallow: /api/
+
 User-agent: Googlebot-Image
 Allow: /
 
+User-agent: Googlebot-Video
+Allow: /
+Disallow: /api/
+
+User-agent: Storebot-Google
+Allow: /
+Disallow: /api/
+
+User-agent: AdsBot-Google
+Allow: /
+Disallow: /api/
+
 User-agent: Google-Extended
+Allow: /
+
+# --- Microsoft / Bing (also powers Copilot and DuckDuckGo results) --------
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
+User-agent: msnbot
+Allow: /
+Disallow: /api/
+
+User-agent: BingPreview
+Allow: /
+Disallow: /api/
+
+User-agent: adidxbot
+Allow: /
+Disallow: /api/
+
+# --- Other general search engines ----------------------------------------
+User-agent: Slurp
+Allow: /
+Disallow: /api/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /api/
+
+User-agent: Sogou
+Allow: /
+Disallow: /api/
+
+User-agent: Seznam
+Allow: /
+Disallow: /api/
+
+User-agent: Qwantify
+Allow: /
+Disallow: /api/
+
+User-agent: Naver
+Allow: /
+Disallow: /api/
+
+User-agent: Yeti
+Allow: /
+Disallow: /api/
+
+User-agent: Applebot
+Allow: /
+Disallow: /api/
+
+User-agent: Mojeek
+Allow: /
+Disallow: /api/
+
+User-agent: Brave
+Allow: /
+Disallow: /api/
+
+User-agent: PetalBot
+Allow: /
+Disallow: /api/
+
+# --- AI assistants and their search/answer crawlers ----------------------
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /api/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /api/
+
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+
+# --- Social and link-preview bots (rich previews when shared) ------------
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Discordbot
 Allow: /
 
 Sitemap: https://navainai.com/sitemap.xml
