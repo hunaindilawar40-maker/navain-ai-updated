@@ -32,8 +32,9 @@
     "- Enterprise: custom pricing — dedicated account manager, custom integrations, " +
     "white-label, SLA.\n" +
     "All plans are month-to-month. Essential and Growth monthly and setup fees are fixed at the " +
-    "listed amounts; Enterprise is custom-priced. Call credits are included, with the allowance " +
-    "confirmed for the prospect's expected weekly call volume before signup. Never invent credit " +
+    "listed amounts; Enterprise is custom-priced. Call credits are included; the allowance is set " +
+    "from the prospect's expected weekly call volume and confirmed before signup. There is no " +
+    "single published allowance that applies to everyone. Never invent credit " +
     "counts, usage thresholds, overage rates, or plan limits. After the first week, " +
     "compare actual volume with the selected plan. If it is within the plan, leave things as agreed. " +
     "If it exceeds the included credits, contact the customer to ask whether they want to increase " +

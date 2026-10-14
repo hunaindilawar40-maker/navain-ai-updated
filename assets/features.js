@@ -265,7 +265,7 @@
       result.appendChild(el("h3", null, planName + " — " + price));
       var ul = el("ul", "quiz-why");
       why.forEach(function (w) { ul.appendChild(el("li", null, "✓ " + w)); });
-      ul.appendChild(el("li", null, "✓ Fees above are the fixed listed fees; call credits are included and the allowance is confirmed for your weekly volume before signup."));
+      ul.appendChild(el("li", null, "✓ The listed fees are fixed; call credits are included, with the allowance set for your expected weekly volume and confirmed before signup."));
       result.appendChild(ul);
       var cta = el("a", "btn btn-primary", "Ask about " + planName);
       cta.href = "/contact.html?intent=pricing&plan=" + plan + "#contact-form";
@@ -687,7 +687,7 @@
       var year1 = f.setup + f.monthly * 12;
       out.textContent = f.name + ": " + money(f.setup) + " one-time setup + " + money(f.monthly) +
         "/month = " + money(year1) + " for the first 12 months, then " + money(f.monthly * 12) +
-        " per year after that. Month-to-month, cancel anytime. Call credits are included; the allowance is confirmed for your expected weekly volume before signup, and any change after the first-week review needs your approval first.";
+        " per year after that. Month-to-month, cancel anytime. Call credits are included; the allowance is set for your expected weekly volume and confirmed before signup. There is no single published allowance for everyone; any change after the first-week review needs your approval first.";
     }
     planSel.addEventListener("change", function () { refresh(); track("Cost View Used"); });
     refresh();

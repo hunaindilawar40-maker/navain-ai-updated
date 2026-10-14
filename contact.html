@@ -35,7 +35,7 @@
 <link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=20261008-selfhosted">
-<link rel="stylesheet" href="/assets/base.css?v=20261014-p0-features">
+<link rel="stylesheet" href="/assets/base.css?v=20261015-professional-polish">
 
 <script type="application/ld+json">
 {
@@ -105,7 +105,7 @@
   <div class="container">
     <p class="kicker">Contact</p>
     <h1>Let's get your calls answered.</h1>
-    <p class="lede">Book a short product walkthrough directly, or send our team a message with your expected weekly call volume and the plan you’re considering. We usually reply to enquiries the same business day.</p>
+    <p class="lede">Book a short product walkthrough directly, or send our team a message. If you share your expected weekly call volume or plan, we can clarify the included credit allowance; the extra form details are optional. We usually reply to enquiries the same business day.</p>
     <div class="hero-actions">
       <a class="btn btn-primary btn-lg" href="https://calendly.com/navainai" target="_blank" rel="noopener noreferrer" data-analytics-event="Calendly Booking Click">Book a 15-minute demo</a>
       <a class="btn btn-ghost btn-lg" href="#contact-form">Send a message</a>
@@ -129,25 +129,26 @@
         </div>
         <!-- Makes the notification email readable in the inbox at a glance. -->
         <input type="hidden" name="_subject" value="New Navain AI enquiry from navainai.com">
+        <p class="form-intro">Your name and email are required. Everything else is optional—share only what helps us answer your question.</p>
         <div class="form-grid">
           <div class="form-field">
-            <label for="f-name">Name</label>
+            <label for="f-name">Name <span class="field-required">(required)</span></label>
             <input type="text" id="f-name" name="name" placeholder="Jane Doe" autocomplete="name" required>
           </div>
           <div class="form-field">
-            <label for="f-business">Business name</label>
-            <input type="text" id="f-business" name="business_name" placeholder="Acme Plumbing Co." autocomplete="organization" required>
+            <label for="f-business">Business name <span class="field-optional">(optional)</span></label>
+            <input type="text" id="f-business" name="business_name" placeholder="Acme Plumbing Co." autocomplete="organization">
           </div>
           <div class="form-field">
-            <label for="f-email">Email</label>
+            <label for="f-email">Email <span class="field-required">(required)</span></label>
             <input type="email" id="f-email" name="email" placeholder="jane@acme.com" autocomplete="email" required>
           </div>
           <div class="form-field">
-            <label for="f-phone">Phone</label>
-            <input type="tel" id="f-phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel" required>
+            <label for="f-phone">Phone <span class="field-optional">(optional)</span></label>
+            <input type="tel" id="f-phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
           </div>
           <div class="form-field field-full">
-            <label for="f-interest">What would you like to discuss? (optional)</label>
+            <label for="f-interest">What would you like to discuss? <span class="field-optional">(optional)</span></label>
             <select id="f-interest" name="interest">
               <option value="">Choose one (optional)</option>
               <option value="demo">Request a 15-minute product demo</option>
@@ -157,9 +158,9 @@
             </select>
           </div>
           <div class="form-field field-full">
-            <label for="f-plan">Plan you’re considering</label>
-            <select id="f-plan" name="selected_plan" required>
-              <option value="" selected disabled>Choose a plan</option>
+            <label for="f-plan">Plan you’re considering <span class="field-optional">(optional)</span></label>
+            <select id="f-plan" name="selected_plan">
+              <option value="" selected>Choose a plan (optional)</option>
               <option value="essential">Essential</option>
               <option value="growth">Growth</option>
               <option value="enterprise">Enterprise</option>
@@ -167,12 +168,12 @@
             </select>
           </div>
           <div class="form-field field-full">
-            <label for="f-volume">Estimated calls per week</label>
-            <input type="number" id="f-volume" name="weekly_call_volume" min="0" step="1" inputmode="numeric" placeholder="e.g. 100" aria-describedby="f-volume-hint" required>
+            <label for="f-volume">Estimated calls per week <span class="field-optional">(optional)</span></label>
+            <input type="number" id="f-volume" name="weekly_call_volume" min="0" step="1" inputmode="numeric" placeholder="e.g. 100" aria-describedby="f-volume-hint">
             <p class="form-hint" id="f-volume-hint">A rough estimate is fine; we review actual volume after the first week.</p>
           </div>
           <div class="form-field field-full">
-            <label for="f-message">Message</label>
+            <label for="f-message">Message <span class="field-optional">(optional)</span></label>
             <textarea id="f-message" name="message" placeholder="What does your business do, and what would you like Navain AI to handle?"></textarea>
           </div>
         </div>
@@ -290,8 +291,8 @@
 </footer>
 <script src="/assets/reveal.js?v=20261006" defer></script>
 <script src="/assets/ui.js?v=20261014-p0-features" defer></script>
-<script src="/assets/features.js?v=20261014-p0-features" defer></script>
-<script src="/assets/chat.js?v=20261014-booking-flow" defer></script>
+<script src="/assets/features.js?v=20261015-volume-based-credit-copy" defer></script>
+<script src="/assets/chat.js?v=20261015-volume-based-credit-copy" defer></script>
 <script src="/assets/analytics.js?v=20261012-events" defer></script>
 </body>
 </html>

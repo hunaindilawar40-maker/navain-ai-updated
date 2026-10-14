@@ -3,9 +3,10 @@
 
 The complete **Navain AI** marketing site: thirteen content pages plus a branded 404,
 a working AI chatbot (**Stacy**), a spam-protected Formspree contact form,
-self-hosted webfonts, per-page social preview images, full structured data, and a
-CI health check. No build step, no bundled libraries — plain HTML, one shared
-stylesheet (`assets/base.css`), and a few tiny hand-written scripts.
+self-hosted webfonts, per-page social preview images, full structured data, and
+CI checks for site health, accessibility fundamentals, and static asset budgets.
+No build step, no bundled libraries — plain HTML, one shared stylesheet
+(`assets/base.css`), and a few tiny hand-written scripts.
 
 **Navain AI** is a 24/7 AI phone receptionist for service businesses. It answers
 every call within two rings using the business's approved greeting and script, books appointments from
@@ -62,11 +63,13 @@ assets/
   og-banner.png home-page social preview; og-<page>.png per-page variants
 favicon.ico     multi-size 16/32/48 at the site root (default crawler fallback)
 404.html        branded not-found page (auto-served by Vercel for unknown paths)
-.github/workflows/site-check.yml  CI: HTML/link/JSON-LD health check on every push
+.github/workflows/site-check.yml  CI: site health, accessibility and performance checks
 tools/
   make-icons.py    regenerates the whole icon set from code — see "Favicon" below
   make-og-banners.py  regenerates the per-page og-<page>.png banners
-  check-site.py    zero-dependency static health check (run in CI and locally)
+  check-site.py    zero-dependency HTML/link/JSON-LD health check
+  check-a11y.py    structural, accessible-name and design-token contrast smoke checks
+  check-performance.py  static asset-size, caching and deferred-script budgets
 api/
   config.js     GET  → { chat } — which env vars exist (booleans only)
   chat.js       POST → Groq chat completion → { text }
@@ -245,15 +248,27 @@ pip install pillow fonttools brotli
 python3 tools/make-og-banners.py
 ```
 
-## CI health check
+## CI quality checks
 
-`.github/workflows/site-check.yml` runs `tools/check-site.py` on every push and
-PR. It checks HTML tag balance, that every internal link/asset resolves, that
-every JSON-LD block parses, and that required SEO/OG head tags exist (the 404
-page is exempted from canonical and must be `noindex`). Run it locally with:
+`.github/workflows/site-check.yml` runs three zero-dependency checks on every
+push and PR:
+
+- `tools/check-site.py` checks balanced HTML, internal links/assets, JSON-LD,
+and required SEO/OG tags.
+- `tools/check-a11y.py` checks page landmarks, labels and accessible names,
+image alt attributes, ARIA references, reduced-motion/focus styles, and core
+text-color contrast tokens.
+- `tools/check-performance.py` enforces static asset-size budgets, deferred
+scripts, image dimensions, local fonts, and long-lived asset caching.
+
+These are regression smoke tests, not a substitute for a manual keyboard and
+screen-reader review, a full WCAG audit, or browser-based Lighthouse/Core Web
+Vitals measurements. Run the checks locally with:
 
 ```bash
 python3 tools/check-site.py
+python3 tools/check-a11y.py
+python3 tools/check-performance.py
 ```
 
 ## Notes

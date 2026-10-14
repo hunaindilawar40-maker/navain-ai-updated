@@ -18,13 +18,15 @@
   /* Ink */
   --ink-h: #1C352C;          /* headings */
   --ink-body: #52675D;       /* body copy */
-  --ink-micro: #78877E;      /* de-emphasised fine print / placeholders */
+  --ink-micro: #626B64;      /* de-emphasised text that still meets contrast */
 
   /* Evergreen, sage and clay accents */
   --cyan: #2D705A;           /* primary evergreen */
   --cyan-hot: #215D4A;       /* deeper evergreen */
   --cyan-text: #28674F;      /* readable accent text */
-  --magenta: #C96F54;        /* warm clay */
+  --magenta: #C96F54;        /* decorative warm clay */
+  --clay-text: #A45A42;      /* accessible clay text */
+  --error-text: #A74E3B;     /* accessible error text */
   --violet: #C59A56;         /* soft ochre */
 
   /* Soft green-tinted hairlines */
@@ -59,7 +61,7 @@
 
   /* Gradient text */
   --grad-cm: linear-gradient(94deg, #28674F 0%, #4C8A67 62%, #C96F54 100%);
-  --grad-cv: linear-gradient(94deg, #28674F 0%, #3F8060 58%, #C59A56 100%);
+  --grad-cv: linear-gradient(94deg, #28674F 0%, #3F8060 58%, #987137 100%);
 }
 
 /* --------------------------------------------------------------------------
@@ -120,7 +122,7 @@ a:hover { color: var(--cyan-hot); }
 
 ul { margin: 0; padding: 0; list-style: none; }
 
-::selection { background: rgba(45, 112, 90, 0.28); color: #FFFEFB; }
+::selection { background: var(--cyan-hot); color: #FFFEFB; }
 
 :focus-visible {
   outline: 2px solid var(--cyan);
@@ -920,7 +922,7 @@ a.trust-item.brandword:hover { color: var(--cyan-text); }
   padding: 6px 10px;
   border: 1px solid rgba(201, 111, 84, 0.34);
   border-radius: 999px;
-  color: #A74E3B;
+  color: var(--error-text);
   background: rgba(201, 111, 84, 0.06);
   font-family: var(--font-mono);
   font-size: 9.5px;
@@ -1340,12 +1342,20 @@ details.faq .faq-a {
 }
 
 .form-field { display: flex; flex-direction: column; gap: 8px; }
+.form-intro {
+  margin: 0 0 20px;
+  color: var(--ink-body);
+  font-size: 14px;
+  line-height: 1.55;
+}
 .form-field label {
   font-size: 13px;
   font-weight: 600;
   color: var(--ink-h);
   letter-spacing: 0.02em;
 }
+.field-required { color: var(--cyan-text); font-size: 0.92em; letter-spacing: 0; }
+.field-optional { color: var(--ink-micro); font-size: 0.92em; font-weight: 500; letter-spacing: 0; }
 .form-field input,
 .form-field select,
 .form-field textarea {
@@ -1364,13 +1374,13 @@ details.faq .faq-a {
 .form-field select {
   appearance: none;
   -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%2300E5FF' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%2328674F' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 15px center;
   padding-right: 42px;
   cursor: pointer;
 }
-.form-field select option { background: #EFF2EA; color: #FFFEFB; }
+.form-field select option { background: var(--card); color: var(--ink-h); }
 .form-field ::placeholder { color: var(--ink-micro); opacity: 1; }
 .form-field input:focus,
 .form-field select:focus,
@@ -1407,7 +1417,7 @@ details.faq .faq-a {
   color: var(--ink-h);
   margin-bottom: 8px;
 }
-.form-status.error { color: #FF7EB9; }
+.form-status.error { color: var(--error-text); }
 .form-hint { font-size: 12.5px; color: var(--ink-micro); margin-top: 12px; }
 
 .contact-aside { display: flex; flex-direction: column; gap: 22px; }
@@ -2178,7 +2188,7 @@ body { background-image: radial-gradient(ellipse at 8% 4%, rgba(197, 154, 86, 0.
 .handoff-emergency { background: rgba(201, 111, 84, 0.07); }
 .handoff-accent { color: #28674F; }
 .form-field select option { background: var(--card); color: var(--ink-h); }
-.form-status.error { color: #A74E3B; }
+.form-status.error { color: var(--error-text); }
 .contact-form-card, .contact-card { box-shadow: 0 18px 48px rgba(28, 53, 44, 0.08); }
 .page-hero { background: var(--surface); }
 
@@ -2275,7 +2285,7 @@ body { background-image: radial-gradient(ellipse at 8% 4%, rgba(197, 154, 86, 0.
 .summary-mock h3 { margin-bottom: 10px; }
 .summary-mock .sim-summary-row { border-bottom: 1px solid var(--line-faint); padding-bottom: 8px; }
 .mock-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .05em;
-  text-transform: uppercase; color: var(--magenta, #C96F54); }
+  text-transform: uppercase; color: var(--clay-text); }
 
 .checklist-list { list-style: none; margin: 18px 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .checklist-list li { display: flex; gap: 12px; align-items: flex-start; border: 1px solid var(--line);
@@ -2325,3 +2335,19 @@ body { background-image: radial-gradient(ellipse at 8% 4%, rgba(197, 154, 86, 0.
   font-weight: 600; color: var(--cyan-text); background: rgba(45,112,90,.08);
   border: 1px solid var(--line); border-radius: 999px; cursor: pointer; text-decoration: none; }
 .chat-action:hover { border-color: var(--cyan); }
+
+/* Accessible focus and tap targets: preserve the ring where form rules style focus. */
+:focus-visible {
+  outline: 3px solid var(--cyan-hot);
+  outline-offset: 3px;
+}
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible,
+.calc input:focus-visible,
+.chat-input-row input:focus-visible {
+  outline: 3px solid var(--cyan-hot);
+  outline-offset: 2px;
+}
+.chat-close { width: 40px; height: 40px; }
+.chat-quick button { min-height: 40px; }
