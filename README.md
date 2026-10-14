@@ -258,8 +258,11 @@ python3 tools/check-site.py
 
 ## Notes
 
-- `robots.txt` allows everything except `/api/`, explicitly allows
-  `Googlebot-Image` so the favicon stays crawlable, and points to `sitemap.xml`
+- `robots.txt` allows everything except `/api/` and repeats an explicit
+  `Allow` group for every major search engine (Google, Bing, Yahoo, DuckDuckGo,
+  Baidu, Yandex, Apple, Naver, Seznam, Sogou, Qwant, Brave, Mojeek), AI assistant
+  crawlers, and link-preview bots. `Googlebot-Image` stays crawlable so the favicon
+  shows, and it points to `sitemap.xml`
   (all content pages at `https://navainai.com/`). The 404 page is excluded.
 - Copy rule: product facts only (two rings, 24/7, no hardware, live within
   24 hours, month-to-month). No invented metrics anywhere on the site.
